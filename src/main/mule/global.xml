@@ -6,7 +6,7 @@
     <http:listener-config name="apiHttpListenerConfig" doc:name="HTTP Listener config" doc:id="eb1c6da3-ffd8-41fe-8686-09eac800ddc3">
         <http:listener-connection host="0.0.0.0" port="${api.port}" protocol="HTTPS" tlsContext="tlsContext" />
     </http:listener-config>
-    <apikit:config name="apixWorkdaySapiConfig" api="resource::b0beec90-c6cc-4c36-8f7c-ef1f8f91253b:apix-workday-sapi:2.0.4:raml:zip:apix-workday-sapi.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <apikit:config name="apixWorkdaySapiConfig" api="resource::b0beec90-c6cc-4c36-8f7c-ef1f8f91253b:pbs-sample:2.0.5:raml:zip:pbs-sample.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <tls:context name="tlsContext" doc:name="TLS Context" doc:id="f70e0902-b4bb-466d-8158-70ff7efc91b7">
         <tls:key-store type="${tls.keystore.type}" path="${tls.keystore.path}" alias="${tls.keystore.alias}" keyPassword="${secure::tls.keystore.keyPassword}" password="${secure::tls.keystore.password}" />
     </tls:context>
