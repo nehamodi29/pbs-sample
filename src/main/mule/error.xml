@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:workday="http://www.mulesoft.org/schema/mule/workday"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/workday http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<error-handler name="workday-error-handler"
+		doc:id="8f0a9a9c-b1dd-47cc-8d17-43ea9083af8b">
+		<on-error-propagate enableNotifications="true"
+			logException="true" doc:name="On Error Propagate"
+			doc:id="ab0353ed-03a4-41c7-a558-733c8cfc9028"
+			type="WORKDAY:CONNECTIVITY">
+			<logger level="ERROR" doc:name="Start Logger"
+				doc:id="6d6142f6-5298-441a-ad05-adc0ac5d72e0" message="#[payload]" />
+			<set-variable value="#[500]" doc:name="httpStatus"
+				doc:id="50d18069-6594-42e1-b2bb-4791e4a9e8ca"
+				variableName="httpStatus" />
+			<flow-ref doc:name="error-description-subflow"
+				doc:id="6ab840b4-0e5c-4503-8be9-f89c7aed3f18"
+				name="error-description-subflow" />
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true"
+			logException="true" doc:name="On Error Propagate"
+			doc:id="38a80897-b967-49ad-8031-cec28e533baa"
+			type="WORKDAY:PROCESSING_ERROR">
+			<logger level="ERROR" doc:name="Start Logger"
+				doc:id="4b2e3199-b0ad-4fae-a160-a59610fdc463" message="#[payload]" />
+			<set-variable value="#[500]" doc:name="httpStatus"
+				doc:id="fdb10801-8e8b-431d-9d70-f28106d29836"
+				variableName="httpStatus" />
+			<flow-ref doc:name="error-description-subflow"
+				doc:id="937cbb2c-f7ce-475d-a287-97cbb85e50e4"
+				name="error-description-subflow" />
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true"
+			logException="true" doc:name="On Error Propagate"
+			doc:id="c717d232-5763-4ef1-b8b8-b16ee12874d1"
+			type="WORKDAY:RETRY_EXHAUSTED">
+			<logger level="ERROR" doc:name="Start Logger"
+				doc:id="61ed67ad-55d1-42e0-8370-97c8208d9e4e" message="#[payload]" />
+			<set-variable value="" doc:name="httpStatus"
+				doc:id="f6dd170f-1ef5-4929-884f-f390f846706f"
+				variableName="httpStatus" />
+			<flow-ref doc:name="error-description-subflow"
+				doc:id="5ec74ae5-76ea-499a-8d9a-234d06f255d9"
+				name="error-description-subflow" />
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true"
+			logException="true" doc:name="On Error Propagate"
+			doc:id="920bcd74-b2dd-4dfc-9f5b-199364944107"
+			type="WORKDAY:VALIDATION_ERROR">
+			<logger level="ERROR" doc:name="Start Logger"
+				doc:id="42a0bdb8-1743-4789-a79a-cccff31f3091" message="#[payload]" />
+			<set-variable value="#[500]" doc:name="httpStatus"
+				doc:id="86b5f8e2-dc51-4db4-98ac-037d4c2f0575"
+				variableName="httpStatus" />
+			<flow-ref doc:name="error-description-subflow"
+				doc:id="6654d9b5-653b-492b-8ff9-27915a36a87f"
+				name="error-description-subflow" />
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true"
+			logException="true" doc:name="On Error Propagate"
+			doc:id="1645a22d-dc0e-4072-8681-faff9bb3bd68" type="ANY">
+			<logger level="ERROR" doc:name="Start Logger"
+				doc:id="82ef0215-86b9-4661-b71b-ab16175841dd" message="#[payload]" />
+			<set-variable value="#[500]" doc:name="httpStatus"
+				doc:id="5035c04c-17cb-4826-ba58-abba3a8de0bd"
+				variableName="httpStatus" />
+			<flow-ref doc:name="error-description-subflow"
+				doc:id="ce8f46bd-f59f-4246-a966-65814300a00a"
+				name="error-description-subflow" />
+		</on-error-propagate>
+	</error-handler>
+	<sub-flow name="error-description-subflow"
+		doc:id="f4e6da74-ade4-49d0-81b6-356bc30f03aa">
+		<ee:transform doc:name="error description"
+			doc:id="e38383ca-8b59-4f71-a648-9b5d18ec340a">
+			<ee:message>
+				<ee:set-payload resource="dwl/errorResponse.dwl" />
+			</ee:message>
+		</ee:transform>
+		<logger level="ERROR" doc:name="Logger"
+			doc:id="e765aa53-a87d-44da-a078-03742a7c677b" message="#[payload]" />
+	</sub-flow>
+</mule>

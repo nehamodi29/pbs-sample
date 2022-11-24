@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule
+	xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:workday="http://www.mulesoft.org/schema/mule/workday"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/workday http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
+	<flow name="get-absence-management"
+		doc:id="cdc4463c-cf70-4e53-b56a-ac4f840c8266">
+		<logger level="INFO" doc:name="Start Logger"
+			doc:id="3216bcfd-42b9-47ad-a3f1-ae14dd0a7dc5" />
+		<http:request method="GET"
+			doc:name="Get Absence Management Request"
+			doc:id="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+			path="${workdayMockRequest.absenceManagementPath}"
+			config-ref="workdayMockSapiHttpRequestConfiguration" />
+		<ee:transform doc:name="XML to JSON"
+			doc:id="a3229b5c-024b-48ce-8ad0-d4a693372c13">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger"
+			doc:id="434b9aa6-210c-4a42-926e-817ccce448b7" message="#[payload]" />
+	</flow>
+</mule>

@@ -1,0 +1,75 @@
+{
+  "Get_Absence_Inputs_Response": {
+    "Response_Filter": {
+      "Page": "1"
+    },
+    "Response_Results": {
+      "Total_Results": "3",
+      "Total_Pages": "1",
+      "Page_Results": "3",
+      "Page": "1"
+    },
+    "Response_Data": {
+      "Absence_Input": {
+        "Absence_Input_Reference": {
+          "ID": "007d3030be3e01ac04defe80ad105c03"
+        },
+        "Absence_Input_Data": {
+          "Worker_Reference": {
+            "ID": "69bd8d24b03601616680251c46367d47",
+            "ID": "02002093"
+          },
+          "Absence_Component_Reference": {
+            "ID": "e8884ba50c21017bdc25d5aba5392405",
+            "ID": "ABS_MULTI_Buddy_Day_Termination_Adjustment_Time_Off\n\t\t\t\t\t"
+          },
+          "Start_Date": "2018-04-01-07:00",
+          "End_Date": "2018-04-30-07:00",
+          "Reference_Date": "2018-04-25-07:00",
+          "Hours": "2",
+          "Adjustment": "1"
+        }
+      },
+      "Absence_Input": {
+        "Absence_Input_Reference": {
+          "ID": "007d3030be3e01b7ccc40281ad105d03"
+        },
+        "Absence_Input_Data": {
+          "Worker_Reference": {
+            "ID": "69bd8d24b03601616680251c46367d47",
+            "ID": "02002093"
+          },
+          "Absence_Component_Reference": {
+            "ID": "aaed0d2f4b5801d5a77f296905396009",
+            "ID": "ABS_GBR_Study_Leave_Termination_Adjustment_Time_Off\n\t\t\t\t\t"
+          },
+          "Start_Date": "2018-04-01-07:00",
+          "End_Date": "2018-04-30-07:00",
+          "Reference_Date": "2018-04-25-07:00",
+          "Hours": "12",
+          "Adjustment": "1"
+        }
+      },
+      "Absence_Input": {
+        "Absence_Input_Reference": {
+          "ID": "007d3030be3e011cc5241081ad105e03"
+        },
+        "Absence_Input_Data": {
+          "Worker_Reference": {
+            "ID": "69bd8d24b03601616680251c46367d47",
+            "ID": "02002093"
+          },
+          "Absence_Component_Reference": {
+            "ID": "aaed0d2f4b580103dd225f02be387f06",
+            "ID": "ABS_GBR_Holiday_Termination_Adjustment_Time_Off\n\t\t\t\t\t"
+          },
+          "Start_Date": "2018-04-01-07:00",
+          "End_Date": "2018-04-30-07:00",
+          "Reference_Date": "2018-04-25-07:00",
+          "Hours": "2",
+          "Adjustment": "1"
+        }
+      }
+    }
+  }
+}

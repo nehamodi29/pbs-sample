@@ -1,0 +1,593 @@
+{
+	"info": {
+		"_postman_id": "4646f35e-a0ef-44d9-a1fd-f5bd3c841c9b",
+		"name": "apix-workday-sapi-cloudhub",
+		"description": "to retrieve data from workday sapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "human Resources",
+			"item": [
+				{
+					"name": "Get Worker Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CORRELATION-ID",
+								"value": "{{x-correlation-id}}",
+								"type": "text",
+								"description": "(Required) CorrelationId for end to end tracking of a request"
+							},
+							{
+								"key": "X-CLIENT-ID",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-CLIENT-SECRET",
+								"value": "{{x-client-secret}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/humanResources/workers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"humanResources",
+								"workers"
+							]
+						},
+						"description": "get worker details from workday"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CORRELATION-ID",
+								"value": "{{x-correlation-id}}",
+								"type": "text",
+								"description": "(Required) CorrelationId for end to end tracking of a request"
+							},
+							{
+								"key": "X-CLIENT-ID",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-CLIENT-SECRET",
+								"value": "{{x-client-secret}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/humanResources/jobProfile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"humanResources",
+								"jobProfile"
+							]
+						},
+						"description": "get job profiles from workday"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Location Details 0",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CORRELATION-ID",
+								"value": "{{x-correlation-id}}",
+								"type": "text",
+								"description": "(Required) CorrelationId for end to end tracking of a request"
+							},
+							{
+								"key": "X-CLIENT-ID",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-CLIENT-SECRET",
+								"value": "{{x-client-secret}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/humanResources/locations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"humanResources",
+								"locations"
+							]
+						},
+						"description": "get location details from workday"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payroll",
+			"item": [
+				{
+					"name": "get company payment dates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "<Basic Auth Username>",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "<Basic Auth Password>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CORRELATION-ID",
+								"value": "{{x-correlation-id}}",
+								"type": "text",
+								"description": "(Required) CorrelationId for end to end tracking of a request"
+							},
+							{
+								"key": "X-CLIENT-ID",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-CLIENT-SECRET",
+								"value": "{{x-client-secret}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payroll/companyPaymentDates",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payroll",
+								"companyPaymentDates"
+							]
+						},
+						"description": "Defines standard http request header,for eg. correlation Id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Advanced Lookup Tables",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "yadev",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "yadev",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CORRELATION-ID",
+								"value": "{{x-correlation-id}}",
+								"type": "text",
+								"description": "(Required) CorrelationId for end to end tracking of a request"
+							},
+							{
+								"key": "X-CLIENT-ID",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-CLIENT-SECRET",
+								"value": "{{x-client-secret}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payroll/advancedLookupTables",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payroll",
+								"advancedLookupTables"
+							]
+						},
+						"description": "Defines standard http request header,for eg. correlation Id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Absence Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "<Basic Auth Username>",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "<Basic Auth Password>",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CORRELATION-ID",
+						"value": "{{x-correlation-id}}",
+						"type": "text",
+						"description": "(Required) CorrelationId for end to end tracking of a request"
+					},
+					{
+						"key": "X-CLIENT-ID",
+						"value": "{{x-client-id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-CLIENT-SECRET",
+						"value": "{{x-client-secret}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/absenceManagement",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"absenceManagement"
+					]
+				},
+				"description": "get absence details from workday"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Location Details by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CORRELATION-ID",
+						"value": "{{x-correlation-id}}",
+						"type": "text",
+						"description": "(Required) CorrelationId for end to end tracking of a request"
+					},
+					{
+						"key": "X-CLIENT-ID",
+						"value": "{{x-client-id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-CLIENT-SECRET",
+						"value": "{{x-client-secret}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/compensation/compensationGradeById?id=69bd8d24b0360132d74b639633362cbf",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"compensation",
+						"compensationGradeById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "69bd8d24b0360132d74b639633362cbf",
+							"description": "(Required) "
+						}
+					]
+				},
+				"description": "get compensation grade by id"
+			},
+			"response": []
+		},
+		{
+			"name": "Readiness",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ready",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ready"
+					]
+				},
+				"description": "Readiness"
+			},
+			"response": []
+		},
+		{
+			"name": "Liveliness",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/live",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"live"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://apix-workday-sapi-dev.us-e2.cloudhub.io/"
+		},
+		{
+			"key": "x-correlation-id",
+			"value": "sgdvcywfdcfwd"
+		},
+		{
+			"key": "x-client-id",
+			"value": "4ec28e03f8144bdb894f5bb08c742c5d"
+		},
+		{
+			"key": "x-client-secret",
+			"value": "349693586c6A40f4BD37E5F2f44cCE3F"
+		}
+	]
+}

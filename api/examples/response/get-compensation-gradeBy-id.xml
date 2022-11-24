@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wd:Get_Compensation_Grades_Response
+	xmlns:wd="urn:com.workday/bsvc" wd:version="v30.0">
+	<wd:Request_References>
+		<wd:Compensation_Grade_Reference>
+			<wd:ID wd:type="WID">69bd8d24b0360132d74b639633362cbf</wd:ID>
+			<wd:ID wd:type="Compensation_Grade_ID">ADM</wd:ID>
+		</wd:Compensation_Grade_Reference>
+	</wd:Request_References>
+	<wd:Response_Results>
+		<wd:Total_Results>1</wd:Total_Results>
+		<wd:Total_Pages>1</wd:Total_Pages>
+		<wd:Page_Results>1</wd:Page_Results>
+		<wd:Page>1</wd:Page>
+	</wd:Response_Results>
+	<wd:Response_Data>
+		<wd:Compensation_Grade>
+			<wd:Compensation_Grade_Reference>
+				<wd:ID wd:type="WID">69bd8d24b0360132d74b639633362cbf</wd:ID>
+				<wd:ID wd:type="Compensation_Grade_ID">ADM</wd:ID>
+			</wd:Compensation_Grade_Reference>
+			<wd:Compensation_Grade_Data>
+				<wd:Compensation_Grade_ID>ADM</wd:Compensation_Grade_ID>
+				<wd:Effective_Date>2018-06-05-07:00</wd:Effective_Date>
+				<wd:Name>ADM - US Head Office</wd:Name>
+				<wd:Description>ADM - US Head Office</wd:Description>
+				<wd:Compensation_Element_Reference>
+					<wd:ID wd:type="WID">3de249406ef101a12b1ab5127b33b90e</wd:ID>
+					<wd:ID wd:type="Compensation_Element_ID">Base_Pay</wd:ID>
+				</wd:Compensation_Element_Reference>
+				<wd:Eligibility_Rule_Reference>
+					<wd:ID wd:type="WID">69bd8d24b0360169df802984333628bf</wd:ID>
+					<wd:ID wd:type="Condition_Rule_ID">COMP: Country = US and Location Hierarchy =
+						US_Support_Centre_Area
+					</wd:ID>
+				</wd:Eligibility_Rule_Reference>
+				<wd:Compensation_Pay_Range>
+					<wd:Number_of_Segments>4</wd:Number_of_Segments>
+					<wd:Minimum>0</wd:Minimum>
+					<wd:Midpoint>0</wd:Midpoint>
+					<wd:Maximum>0</wd:Maximum>
+					<wd:Spread>0</wd:Spread>
+					<wd:Segment_1_Top>0</wd:Segment_1_Top>
+					<wd:Segment_2_Top>0</wd:Segment_2_Top>
+					<wd:Segment_3_Top>0</wd:Segment_3_Top>
+					<wd:Segment_4_Top>0</wd:Segment_4_Top>
+					<wd:Segment_5_Top>0</wd:Segment_5_Top>
+					<wd:Currency_Reference>
+						<wd:ID wd:type="WID">9e996ffdd3e14da0ba7275d5400bafd4</wd:ID>
+						<wd:ID wd:type="Currency_ID">USD</wd:ID>
+						<wd:ID wd:type="Currency_Numeric_Code">840</wd:ID>
+					</wd:Currency_Reference>
+					<wd:Frequency_Reference>
+						<wd:ID wd:type="WID">c20736734b46017e99c280396f2f5800</wd:ID>
+						<wd:ID wd:type="Frequency_ID">Annual</wd:ID>
+					</wd:Frequency_Reference>
+					<wd:Allow_Override>0</wd:Allow_Override>
+				</wd:Compensation_Pay_Range>
+				<wd:Compensation_Grade_Profile>
+					<wd:Compensation_Grade_Profile_Reference>
+						<wd:ID wd:type="WID">69bd8d24b03601d7e176639633362dbf</wd:ID>
+						<wd:ID wd:type="Compensation_Grade_Profile_ID">ADM-USHO</wd:ID>
+					</wd:Compensation_Grade_Profile_Reference>
+					<wd:Compensation_Grade_Profile_Data>
+						<wd:Compensation_Grade_Profile_ID>ADM-USHO
+						</wd:Compensation_Grade_Profile_ID>
+						<wd:Effective_Date>2018-06-05-07:00</wd:Effective_Date>
+						<wd:Name>ADM - US Head Office</wd:Name>
+						<wd:Description>ADM - US Head Office</wd:Description>
+						<wd:Compensation_Element_Reference>
+							<wd:ID wd:type="WID">3de249406ef101a12b1ab5127b33b90e</wd:ID>
+							<wd:ID wd:type="Compensation_Element_ID">Base_Pay</wd:ID>
+						</wd:Compensation_Element_Reference>
+						<wd:Eligibility_Rule_Reference>
+							<wd:ID wd:type="WID">69bd8d24b0360169df802984333628bf</wd:ID>
+							<wd:ID wd:type="Condition_Rule_ID">COMP: Country = US and Location Hierarchy
+								=
+								US_Support_Centre_Area
+							</wd:ID>
+						</wd:Eligibility_Rule_Reference>
+						<wd:Inactive>0</wd:Inactive>
+						<wd:Compensation_Pay_Range_Data>
+							<wd:Number_of_Segments>4</wd:Number_of_Segments>
+							<wd:Minimum>0</wd:Minimum>
+							<wd:Midpoint>0</wd:Midpoint>
+							<wd:Maximum>0</wd:Maximum>
+							<wd:Spread>0</wd:Spread>
+							<wd:Segment_1_Top>0</wd:Segment_1_Top>
+							<wd:Segment_2_Top>0</wd:Segment_2_Top>
+							<wd:Segment_3_Top>0</wd:Segment_3_Top>
+							<wd:Segment_4_Top>0</wd:Segment_4_Top>
+							<wd:Segment_5_Top>0</wd:Segment_5_Top>
+							<wd:Currency_Reference>
+								<wd:ID wd:type="WID">9e996ffdd3e14da0ba7275d5400bafd4</wd:ID>
+								<wd:ID wd:type="Currency_ID">USD</wd:ID>
+								<wd:ID wd:type="Currency_Numeric_Code">840</wd:ID>
+							</wd:Currency_Reference>
+							<wd:Frequency_Reference>
+								<wd:ID wd:type="WID">c20736734b46017e9fd380396f2f5900</wd:ID>
+								<wd:ID wd:type="Frequency_ID">Hourly</wd:ID>
+							</wd:Frequency_Reference>
+							<wd:Allow_Override>0</wd:Allow_Override>
+						</wd:Compensation_Pay_Range_Data>
+					</wd:Compensation_Grade_Profile_Data>
+				</wd:Compensation_Grade_Profile>
+				<wd:Assign_First_Step_During_Compensation_Proposal>0
+				</wd:Assign_First_Step_During_Compensation_Proposal>
+				<wd:Inactive>0</wd:Inactive>
+			</wd:Compensation_Grade_Data>
+		</wd:Compensation_Grade>
+	</wd:Response_Data>
+</wd:Get_Compensation_Grades_Response>

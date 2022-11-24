@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule
+	xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
+	<flow name="get-workers"
+		doc:id="6084a148-b239-4a70-a5b0-d86edce4223f">
+		<logger level="INFO" doc:name="Start Logger"
+			doc:id="a6070d3f-345c-442c-b522-6d9c68ee70a4" />
+		<http:request method="GET" doc:name="Get Workers Request"
+			doc:id="12e62f4b-c82a-48b1-885c-7ac9aa0b5792"
+			config-ref="workdayMockSapiHttpRequestConfiguration"
+			path="${workdayMockRequest.WorkersPath}" />
+		<ee:transform doc:name="XML to JSON"
+			doc:id="1916a6a4-15f2-40e0-aa60-0d9f2aa08c92">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger"
+			doc:id="4a1cf046-21ff-462d-ae74-ca6c4ff98a8a" message="#[payload]" />
+	</flow>
+	<flow name="get-job-profiles"
+		doc:id="1a4a3830-dba6-4fee-9f98-2ce7fdda9875">
+		<logger level="INFO" doc:name="Start Logger"
+			doc:id="03d22c94-3322-43e5-b8a2-00621b21ea9b" />
+		<http:request method="GET"
+			doc:name="Get Job Profiles Request"
+			doc:id="786a19d0-6a6c-4545-8481-14af70d18e12"
+			config-ref="workdayMockSapiHttpRequestConfiguration"
+			path="${workdayMockRequest.JobProfiles}" />
+		<ee:transform doc:name="XML to JSON"
+			doc:id="b4502147-e012-4d70-88b6-89a83c36bf46">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger"
+			doc:id="198b5737-4620-43e3-aff1-e6d948443fd5" message="#[payload]" />
+	</flow>
+	<flow name="get-locations"
+		doc:id="1a05dc9d-11d5-4809-8a52-e4384da487ce">
+		<logger level="INFO" doc:name="Start Logger"
+			doc:id="42d2925d-c41c-43e6-92b2-01165c61cb52" />
+		<http:request method="GET"
+			doc:name="Get Locations Request"
+			doc:id="c54e0ace-a965-444c-8477-07b2df627a2f"
+			config-ref="workdayMockSapiHttpRequestConfiguration"
+			path="${workdayMockRequest.Locations}" />
+		<ee:transform doc:name="XML to JSON"
+			doc:id="551d79af-14d0-40ea-b902-ac87e69e7941">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger"
+			doc:id="324c59e2-2357-4e2e-82b5-df0576446cf1" message="#[payload]" />
+	</flow>
+</mule>

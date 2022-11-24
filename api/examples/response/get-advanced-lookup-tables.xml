@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<bsvc:Get_Advanced_Lookup_Tables_Response xmlns:bsvc="urn:com.workday/bsvc" bsvc:version="string">
+    <bsvc:Request_References>
+        <bsvc:Advanced_Lookup_Table_Reference bsvc:Descriptor="string">
+            <bsvc:ID bsvc:type="string">string</bsvc:ID>
+        </bsvc:Advanced_Lookup_Table_Reference>
+    </bsvc:Request_References>
+    <bsvc:Request_Criteria/>
+    <bsvc:Response_Filter>
+        <bsvc:As_Of_Effective_Date>2008-09-29</bsvc:As_Of_Effective_Date>
+        <bsvc:As_Of_Entry_DateTime>2014-09-18T23:18:33</bsvc:As_Of_Entry_DateTime>
+        <bsvc:Page>1000.00</bsvc:Page>
+        <bsvc:Count>1000.00</bsvc:Count>
+    </bsvc:Response_Filter>
+    <bsvc:Response_Group>
+        <bsvc:Include_Reference>true</bsvc:Include_Reference>
+    </bsvc:Response_Group>
+    <bsvc:Response_Results>
+        <bsvc:Total_Results>1000.00</bsvc:Total_Results>
+        <bsvc:Total_Pages>1000.00</bsvc:Total_Pages>
+        <bsvc:Page_Results>1000.00</bsvc:Page_Results>
+        <bsvc:Page>1000.00</bsvc:Page>
+    </bsvc:Response_Results>
+    <bsvc:Response_Data>
+        <bsvc:Advanced_Lookup_Table>
+            <bsvc:Advanced_Lookup_Table_Reference bsvc:Descriptor="string">
+                <bsvc:ID bsvc:type="string">string</bsvc:ID>
+            </bsvc:Advanced_Lookup_Table_Reference>
+            <bsvc:Advanced_Lookup_Table_Data>
+                <bsvc:Advanced_Lookup_Table_ID>string</bsvc:Advanced_Lookup_Table_ID>
+                <bsvc:Lookup_Table_Name>string</bsvc:Lookup_Table_Name>
+                <bsvc:Comment>string</bsvc:Comment>
+                <bsvc:Lookup_Table_Category_Reference bsvc:Descriptor="string">
+                    <bsvc:ID bsvc:type="string">string</bsvc:ID>
+                </bsvc:Lookup_Table_Category_Reference>
+                <bsvc:Context_Instance_Display_Name_-_Read_Only>string</bsvc:Context_Instance_Display_Name_-_Read_Only>
+                <bsvc:Context_Instance_Reference bsvc:Descriptor="string">
+                    <bsvc:ID bsvc:type="string">string</bsvc:ID>
+                </bsvc:Context_Instance_Reference>
+                <bsvc:Search_Criteria_Display_Name_-_Read_Only>string</bsvc:Search_Criteria_Display_Name_-_Read_Only>
+                <bsvc:Search_Criteria_ID_Reference bsvc:Descriptor="string">
+                    <bsvc:ID bsvc:type="string">string</bsvc:ID>
+                </bsvc:Search_Criteria_ID_Reference>
+                <bsvc:Numeric_Search_Criteria_ID_Reference bsvc:Descriptor="string">
+                    <bsvc:ID bsvc:type="string">string</bsvc:ID>
+                </bsvc:Numeric_Search_Criteria_ID_Reference>
+                <bsvc:Country_Reference bsvc:Descriptor="string">
+                    <bsvc:ID bsvc:type="string">string</bsvc:ID>
+                </bsvc:Country_Reference>
+                <bsvc:Column_Data>
+                    <bsvc:Order>string</bsvc:Order>
+                    <bsvc:Column_Name>string</bsvc:Column_Name>
+                    <bsvc:Display_On_Page>false</bsvc:Display_On_Page>
+                </bsvc:Column_Data>
+                <bsvc:Snapshot_Data>
+                    <bsvc:Effective_Date>2008-11-15</bsvc:Effective_Date>
+                    <bsvc:Row_Data>
+                        <bsvc:Lookup_Table_Row_Instance>string</bsvc:Lookup_Table_Row_Instance>
+                        <bsvc:Report_Field_Search_Value_Display_Name_-_Read_Only>string</bsvc:Report_Field_Search_Value_Display_Name_-_Read_Only>
+                        <bsvc:Report_Field_Search_Value_Reference bsvc:Descriptor="string">
+                            <bsvc:ID bsvc:parent_id="string" bsvc:parent_type="string" bsvc:type="string">string</bsvc:ID>
+                        </bsvc:Report_Field_Search_Value_Reference>
+                        <bsvc:Numeric_Search_Value>1000.00</bsvc:Numeric_Search_Value>
+                        <bsvc:Text_Search_Value>string</bsvc:Text_Search_Value>
+                        <bsvc:Default>true</bsvc:Default>
+                        <bsvc:Lookup_Return_Amount_a>1000.00</bsvc:Lookup_Return_Amount_a>
+                        <bsvc:Lookup_Return_Amount_b>1000.00</bsvc:Lookup_Return_Amount_b>
+                        <bsvc:Lookup_Return_Amount_c>1000.00</bsvc:Lookup_Return_Amount_c>
+                        <bsvc:Lookup_Return_Amount_d>1000.00</bsvc:Lookup_Return_Amount_d>
+                        <bsvc:Lookup_Return_Amount_e>1000.00</bsvc:Lookup_Return_Amount_e>
+                        <bsvc:Lookup_Return_Amount_f>1000.00</bsvc:Lookup_Return_Amount_f>
+                        <bsvc:Lookup_Return_Amount_g>1000.00</bsvc:Lookup_Return_Amount_g>
+                        <bsvc:Lookup_Return_Amount_h>1000.00</bsvc:Lookup_Return_Amount_h>
+                        <bsvc:Lookup_Return_Amount_i>1000.00</bsvc:Lookup_Return_Amount_i>
+                        <bsvc:Lookup_Return_Amount_j>1000.00</bsvc:Lookup_Return_Amount_j>
+                    </bsvc:Row_Data>
+                </bsvc:Snapshot_Data>
+            </bsvc:Advanced_Lookup_Table_Data>
+        </bsvc:Advanced_Lookup_Table>
+    </bsvc:Response_Data>
+</bsvc:Get_Advanced_Lookup_Tables_Response>

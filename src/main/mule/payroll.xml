@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:workday="http://www.mulesoft.org/schema/mule/workday"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/workday http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd">
+	<flow name="payroll-get-advanced-lookup-tables-flow"
+		doc:id="95c6e9d6-34d4-4911-a3fd-26653eaaf40a">
+		<logger level="INFO" doc:name="Start Logger"
+			doc:id="f320ea0d-d5c4-4b80-8237-f7a23e7c9223" />
+		<http:request method="GET"
+			doc:name="Payroll Get Advanced Lookup Tables Request"
+			doc:id="be044b33-34c9-451a-ba63-634443e96fc1"
+			config-ref="workdayMockSapiHttpRequestConfiguration"
+			path='${workdayMockRequest.AdvancedLookupTables}' />
+		<ee:transform doc:name="XML to JSON"
+			doc:id="93cef18b-ba24-41df-9790-fe3b725131dd">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger"
+			doc:id="16581803-2273-43df-b6cf-3d876daa1818" message="#[payload]" />
+	</flow>
+	<flow name="payroll-get-company-payment-dates-flow"
+		doc:id="18e77ff2-242a-4e68-9096-75976a660535">
+		<logger level="INFO" doc:name="Start Logger"
+			doc:id="abec4559-429d-40b9-bb80-e5e56a007134" />
+		<http:request method="GET"
+			doc:name="Payroll Get Company Payment Dates Request"
+			doc:id="afa3f5d3-4cd1-44ec-b7a3-2fd6a5fdc86f"
+			config-ref="workdayMockSapiHttpRequestConfiguration"
+			path="${workdayMockRequest.CompanyPaymentDates}" />
+		<ee:transform doc:name="XML to JSON"
+			doc:id="c3a4cb88-856d-495a-9c3a-0098e6d3e964">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger"
+			doc:id="55f36362-c116-4369-829f-c0abd5fac945" message="#[payload]" />
+	</flow>
+</mule>

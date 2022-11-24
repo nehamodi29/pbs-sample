@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule
+	xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:workday="http://www.mulesoft.org/schema/mule/workday"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/workday http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
+	<flow name="get-compensation-grade-by-id"
+		doc:id="def3568b-b9e4-4a45-8ead-f88ae01cf17f">
+		<logger level="INFO" doc:name="Start Logger"
+			doc:id="fb110dfc-5e3b-438e-9fb8-0e33f6f3d74d" />
+		<http:request method="GET"
+			doc:name="Get Compensation Grade By Id Request"
+			doc:id="c254c2f9-f1da-4c75-a393-3998fea90bcd"
+			config-ref="workdayMockSapiHttpRequestConfiguration"
+			path="${workdayMockRequest.CompenstionGradePath}" />
+		<ee:transform doc:name="XML to JSON"
+			doc:id="6f6f87d7-cf5a-45d6-9000-aefa2a37381a">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger"
+			doc:id="e1665c5d-2f9a-4416-a27e-8a98356e815c" message="#[payload]" />
+	</flow>
+</mule>

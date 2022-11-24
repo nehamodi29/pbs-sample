@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit"
+	xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config
+		name="apix-workday-sapi-humanresource-test-suite.xml" />
+	<munit:test
+		name="apix-workday-sapi-humanresource-test-suite-getWorkersTest"
+		doc:id="619081c8-df65-47d8-8dc5-5f07882981f9" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="81d62ed0-8d61-4231-be4d-a85e6e2390b3"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="12e62f4b-c82a-48b1-885c-7ac9aa0b5792"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[readUrl("classpath://xml/get-workers.xml","application/xml")]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref doc:name="getWorkers"
+				doc:id="2f4dde30-41fa-40c6-84c3-a802bda6373f" name="get-workers" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="a49513fb-a361-4350-8766-df208eeb46c4" actual="#[payload]"
+				message="tested"
+				expected='#[readUrl("classpath://responses/get-workers.json")]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-humanresource-test-suite-getJobProfilesTest"
+		doc:id="c48b2a7b-ebf7-49f0-9533-735728f48422" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="182b4248-3e80-47d1-8b1a-11b90cb1b339"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="786a19d0-6a6c-4545-8481-14af70d18e12"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[readUrl("classpath://xml/get-job-profile.xml","application/xml")]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref doc:name="getJobProfiles"
+				doc:id="c9898950-5f71-43ff-a459-b273a9e481ec"
+				name="get-job-profiles" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="195c69f4-94b5-4b51-bc6d-d2b0aa6de8ab" actual="#[payload]"
+				expected='#[readUrl("classpath://responses/get-jobprofile.json")]'
+				message="tested" />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-humanresource-test-suite-getLocationsTest"
+		doc:id="4389e0b5-f6ad-494e-930e-3808b7544216" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="55961a47-a6d3-42c3-83b0-410a0a69c4d8"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="c54e0ace-a965-444c-8477-07b2df627a2f"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[readUrl("classpath://xml/get-locations.xml","application/xml")]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref doc:name="getLocations"
+				doc:id="528a680e-1586-4b01-b4f2-7b5b9da2018d" name="get-locations" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="12bdbb1f-7c61-4063-9328-f3ceb20b2768" actual="#[payload]"
+				expected='#[readUrl("classpath://responses/get-locations.json")]'
+				message="tested" />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

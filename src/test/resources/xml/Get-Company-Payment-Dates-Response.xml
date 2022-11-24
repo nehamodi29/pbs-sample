@@ -1,0 +1,48 @@
+<bsvc:Get_Company_Payment_Dates_Response bsvc:version="string" xmlns:bsvc="urn:com.workday/bsvc">
+  <!--Optional:-->
+  <bsvc:Request_Criteria>
+    <bsvc:Company_Reference bsvc:Descriptor="string">
+      <!--Zero or more repetitions:-->
+      <bsvc:ID bsvc:type="string">string</bsvc:ID>
+    </bsvc:Company_Reference>
+    <!--Optional:-->
+    <bsvc:Include_Related_Companies_for_Legal_Entity>false</bsvc:Include_Related_Companies_for_Legal_Entity>
+    <bsvc:Result_Completed_From>2007-10-26T06:36:28</bsvc:Result_Completed_From>
+    <bsvc:Result_Completed_To>2004-02-14T18:44:14</bsvc:Result_Completed_To>
+  </bsvc:Request_Criteria>
+  <!--Optional:-->
+  <bsvc:Response_Filter>
+    <!--Optional:-->
+    <bsvc:As_Of_Effective_Date>2018-11-01+00:00</bsvc:As_Of_Effective_Date>
+    <!--Optional:-->
+    <bsvc:As_Of_Entry_DateTime>2013-05-22T01:02:49+00:00</bsvc:As_Of_Entry_DateTime>
+    <!--Optional:-->
+    <bsvc:Page>1000.00</bsvc:Page>
+    <!--Optional:-->
+    <bsvc:Count>1000.00</bsvc:Count>
+  </bsvc:Response_Filter>
+  <!--Optional:-->
+  <bsvc:Response_Results>
+    <!--Optional:-->
+    <bsvc:Total_Results>1000.00</bsvc:Total_Results>
+    <!--Optional:-->
+    <bsvc:Total_Pages>1000.00</bsvc:Total_Pages>
+    <!--Optional:-->
+    <bsvc:Page_Results>1000.00</bsvc:Page_Results>
+    <!--Optional:-->
+    <bsvc:Page>1000.00</bsvc:Page>
+  </bsvc:Response_Results>
+  <!--Optional:-->
+  <bsvc:Response_Data>
+    <!--Zero or more repetitions:-->
+    <bsvc:Company_Payment_Dates_Data>
+      <!--Optional:-->
+      <bsvc:Company_Reference bsvc:Descriptor="string">
+        <!--Zero or more repetitions:-->
+        <bsvc:ID bsvc:type="string">string</bsvc:ID>
+      </bsvc:Company_Reference>
+      <!--Optional:-->
+      <bsvc:Payment_Date>2002-11-05+00:00</bsvc:Payment_Date>
+    </bsvc:Company_Payment_Dates_Data>
+  </bsvc:Response_Data>
+</bsvc:Get_Company_Payment_Dates_Response>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit"
+	xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="health-test-suite.xml" />
+	<munit:test
+		name="health-test-suite-readiness-check-subflowTest"
+		doc:id="00d86fc9-06c5-4dc6-bdf8-b3847bb9706f" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="570a90f6-6c60-42e2-b866-813cbf4b86cc"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="be49e68f-cdb8-4255-8de9-2bb3caf5e577"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:attributes
+						value="#[{ statusCode:200}]" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="e8654d98-901f-4ed7-a567-c0ae7f25d057">
+				<flow-ref doc:name="readiness-check-subflow"
+					doc:id="e608ce68-2179-4311-8c68-cb35b0d584ab"
+					name="readiness-check-subflow" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="a33fb8b9-2ed5-4717-b357-a14a79f71430">
+						<logger level="INFO" doc:name="Logger"
+							doc:id="34aa6e51-bdce-465b-8724-3f18e268fe0c"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="ae2ef757-2303-4d21-aeae-ebf48cbc0c18" actual="#[payload]"
+				expected='#[{	ServiceName:"Workday",	Status: "Up"}]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="health-test-suite-readiness-check-subflowTest1"
+		doc:id="2079dafa-79cd-41e9-b1b2-7df7808a5136" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="a41ebc01-fa35-4d4a-8247-d2cee812e2cb"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="be49e68f-cdb8-4255-8de9-2bb3caf5e577"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="HTTP:CONNECTIVITY" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref doc:name="readiness-check-subflow"
+				doc:id="467e098a-6828-4f44-9923-283003f71a9c"
+				name="readiness-check-subflow" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="5377215f-4047-4a35-a3a9-8339ca9d5c35" actual="#[payload]"
+				expected='#[{	ServiceName:"Workday",	Status: "Down"}]' />
+		</munit:validation>
+	</munit:test>
+</mule>

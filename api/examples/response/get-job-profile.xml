@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wd:Get_Job_Profiles_Response xmlns:wd="urn:com.workday/bsvc"
+	wd:version="v30.0">
+	<wd:Response_Filter>
+		<wd:Page>1</wd:Page>
+	</wd:Response_Filter>
+	<wd:Response_Results>
+		<wd:Total_Results>3</wd:Total_Results>
+		<wd:Total_Pages>1</wd:Total_Pages>
+		<wd:Page_Results>3</wd:Page_Results>
+		<wd:Page>1</wd:Page>
+	</wd:Response_Results>
+	<wd:Response_Data>
+		<wd:Job_Profile>
+			<wd:Job_Profile_Reference>
+				<wd:ID wd:type="WID">541d79e7cd25016036f272b686320549</wd:ID>
+				<wd:ID wd:type="Job_Profile_ID">10024</wd:ID>
+			</wd:Job_Profile_Reference>
+			<wd:Job_Profile_Data>
+				<wd:Job_Code>10024</wd:Job_Code>
+				<wd:Effective_Date>2018-05-31-07:00</wd:Effective_Date>
+				<wd:Job_Profile_Basic_Data>
+					<wd:Inactive>0</wd:Inactive>
+					<wd:Job_Title>Business Development Manager</wd:Job_Title>
+					<wd:Include_Job_Code_in_Name>0</wd:Include_Job_Code_in_Name>
+					<wd:Work_Shift_Required>0</wd:Work_Shift_Required>
+					<wd:Public_Job>0</wd:Public_Job>
+					<wd:Critical_Job>0</wd:Critical_Job>
+				</wd:Job_Profile_Basic_Data>
+			</wd:Job_Profile_Data>
+		</wd:Job_Profile>
+		<wd:Job_Profile>
+			<wd:Job_Profile_Reference>
+				<wd:ID wd:type="WID">541d79e7cd250108252ba5b686321749</wd:ID>
+				<wd:ID wd:type="Job_Profile_ID">10033</wd:ID>
+			</wd:Job_Profile_Reference>
+			<wd:Job_Profile_Data>
+				<wd:Job_Code>10033</wd:Job_Code>
+				<wd:Effective_Date>2018-05-31-07:00</wd:Effective_Date>
+				<wd:Job_Profile_Basic_Data>
+					<wd:Inactive>0</wd:Inactive>
+					<wd:Job_Title>Retail Manager</wd:Job_Title>
+					<wd:Include_Job_Code_in_Name>0</wd:Include_Job_Code_in_Name>
+					<wd:Work_Shift_Required>0</wd:Work_Shift_Required>
+					<wd:Public_Job>0</wd:Public_Job>
+					<wd:Critical_Job>0</wd:Critical_Job>
+				</wd:Job_Profile_Basic_Data>
+			</wd:Job_Profile_Data>
+		</wd:Job_Profile>
+		<wd:Job_Profile>
+			<wd:Job_Profile_Reference>
+				<wd:ID wd:type="WID">541d79e7cd2501290b9ca8b686321949</wd:ID>
+				<wd:ID wd:type="Job_Profile_ID">10034</wd:ID>
+			</wd:Job_Profile_Reference>
+			<wd:Job_Profile_Data>
+				<wd:Job_Code>10034</wd:Job_Code>
+				<wd:Effective_Date>2018-05-31-07:00</wd:Effective_Date>
+				<wd:Job_Profile_Basic_Data>
+					<wd:Inactive>0</wd:Inactive>
+					<wd:Job_Title>Systems &amp; Support Manager HK</wd:Job_Title>
+					<wd:Include_Job_Code_in_Name>0</wd:Include_Job_Code_in_Name>
+					<wd:Work_Shift_Required>0</wd:Work_Shift_Required>
+					<wd:Public_Job>0</wd:Public_Job>
+					<wd:Critical_Job>0</wd:Critical_Job>
+				</wd:Job_Profile_Basic_Data>
+			</wd:Job_Profile_Data>
+		</wd:Job_Profile>
+	</wd:Response_Data>
+</wd:Get_Job_Profiles_Response>

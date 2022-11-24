@@ -1,0 +1,127 @@
+#%RAML 1.0
+title: apix-workday-sapi
+description: to retrieve data from workday sapi
+version: v1
+baseUri: https://anypoint.mulesoft.com/api/v1/
+mediaType: application/json
+protocols: [HTTPS,HTTP]
+
+documentation:
+  - title: apix-workday-sapi
+    content: Welcome to the apix-workday-sapi. This API can be used for retrieving data from workday system
+uses:
+
+  traitsLib: /exchange_modules/b0beec90-c6cc-4c36-8f7c-ef1f8f91253b/istika-common-header-library/1.0.1/istika-common-header-library.raml
+
+traits:
+  
+  error-response: !include /exchange_modules/b0beec90-c6cc-4c36-8f7c-ef1f8f91253b/istika-error-responses/1.0.0/istika-error-responses.raml  
+ 
+/absence-management:
+  get:
+    displayName: Get Absence Details
+    is: [error-response,traitsLib.client-id-required,traitsLib.correlationId]
+    description: get absence details from workday
+    responses:
+      200:
+        headers:
+          Content-Type:
+        body:
+          application/xml:
+            example: !include /examples/response/get-absence.xml
+
+/human-resources:
+  /workers:
+    get:
+      displayName: Get Worker Details
+      is: [error-response,traitsLib.client-id-required,traitsLib.correlationId]
+      description: get worker details from workday
+      responses:
+        200:
+          headers:
+            Content-Type:
+          body:
+            application/xml:
+                example: !include /examples/response/get-workers.xml
+  /job-profile:
+    get:
+      displayName: Get Job Details
+      is: [error-response,traitsLib.client-id-required,traitsLib.correlationId]
+      description: get job profiles from workday
+      responses:
+        200:
+          headers:
+            Content-Type:
+          body:
+            application/xml:
+              example: !include /examples/response/get-job-profile.xml
+                
+  /locations:
+    get:
+      displayName: Get Location Details
+      is: [error-response,traitsLib.client-id-required,traitsLib.correlationId]
+      description: get location details from workday
+      responses:
+        200:
+          headers:
+            Content-Type:
+          body:
+            application/xml:
+              example: !include /examples/response/get-locations.xml
+                
+
+/compensation:
+  /compensation-grade-by-id:
+    get:
+      displayName: Get Location Details
+      is: [error-response,traitsLib.client-id-required,traitsLib.correlationId]
+      description: get compensation grade by id
+      queryParameters:
+        id:
+          required: true
+      responses:
+        200:
+          headers:
+            Content-Type:
+          body:
+            application/xml:
+              example: !include /examples/response/get-compensation-gradeBy-id.xml
+
+/payroll:
+  /company-payment-dates:
+    get:
+      displayName: get company payment dates
+      is: [error-response,traitsLib.client-id-required,traitsLib.correlationId]
+      responses:
+        200:
+          headers:
+            Content-Type:
+          body:
+            application/xml:
+              example: !include /examples/response/get-company-payment-dates.xml
+              
+  /advanced-lookup-tables:
+    get:
+      displayName: Get Advanced Lookup Tables
+      is: [error-response,traitsLib.client-id-required,traitsLib.correlationId]
+      responses:
+        200:
+          headers:
+            Content-Type:
+          body:
+            application/xml:
+              example: !include /examples/response/get-advanced-lookup-tables.xml
+                
+
+              
+              
+      
+
+
+              
+
+                
+            
+                
+
+              

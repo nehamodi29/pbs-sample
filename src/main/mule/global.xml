@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ec2="http://www.mulesoft.org/schema/mule/ec2" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger" xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:workday="http://www.mulesoft.org/schema/mule/workday" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd http://www.mulesoft.org/schema/mule/workday http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd http://www.mulesoft.org/schema/mule/ec2 http://www.mulesoft.org/schema/mule/ec2/current/mule-ec2.xsd http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+    <http:request-config name="workdayMockSapiHttpRequestConfiguration" doc:name="HTTP Request configuration" doc:id="9c342a2b-4dba-4d1b-9ebb-c0857ecd75a8">
+        <http:request-connection host="${workdayMockRequest.host}" port="${workdayMockRequest.port}" />
+    </http:request-config>
+    <http:listener-config name="apiHttpListenerConfig" doc:name="HTTP Listener config" doc:id="eb1c6da3-ffd8-41fe-8686-09eac800ddc3">
+        <http:listener-connection host="0.0.0.0" port="${api.port}" protocol="HTTPS" tlsContext="tlsContext" />
+    </http:listener-config>
+    <apikit:config name="apixWorkdaySapiConfig" api="resource::b0beec90-c6cc-4c36-8f7c-ef1f8f91253b:apix-workday-sapi:2.0.4:raml:zip:apix-workday-sapi.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <tls:context name="tlsContext" doc:name="TLS Context" doc:id="f70e0902-b4bb-466d-8158-70ff7efc91b7">
+        <tls:key-store type="${tls.keystore.type}" path="${tls.keystore.path}" alias="${tls.keystore.alias}" keyPassword="${secure::tls.keystore.keyPassword}" password="${secure::tls.keystore.password}" />
+    </tls:context>
+    <import doc:name="importCommonHealth" doc:id="7288efe9-bec3-4375-8ccc-fe9b074a2aee" file="common-health.xml" />
+    <import doc:name="importCommonErrorHandler" doc:id="04d99030-325c-46d2-b0b8-cc38553544b4" file="common-error-handler.xml" />
+    <configuration doc:name="configuration" doc:id="1fea7b01-d11a-4d23-a625-3aaa82d17f96" defaultErrorHandler-ref="common-error-handler" />
+    <secure-properties:config name="securePropertiesConfig" doc:name="Secure Properties Config" doc:id="ee5b8056-fd5a-4ecc-be1a-54c7cb78d70d" file="properties\secure-${mule.env}.yaml" key="${secure.key}">
+        <secure-properties:encrypt algorithm="Blowfish" />
+    </secure-properties:config>
+    <configuration-properties doc:name="commonConfigurationProperties" doc:id="6b06a0bd-6da4-43d9-a358-ee19485daa25" file="properties\common-properties.yaml" />
+    <configuration-properties doc:name="envConfigurationProperties" doc:id="a9869518-7c6e-43cc-850c-82c4bc84b043" file="properties\secure-${mule.env}.yaml" />
+	<api-gateway:autodiscovery apiId="${api.id}"
+		ignoreBasePath="true" doc:name="apiAutodiscovery"
+		doc:id="5d910968-c952-448f-bb1a-f400b0f07ec4"
+		flowRef="apix-workday-sapi-main" />
+    <global-property doc:name="Global Property" doc:id="766264da-95a1-4194-adfc-c22a0219a385" name="mule.env" value="dev" />
+    <global-property doc:name="Global Property" doc:id="97463450-85e1-4bf7-af68-10a8ecba9e71" name="secure.key" value="mule" />
+</mule>

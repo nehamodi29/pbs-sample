@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit"
+	xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config
+		name="apix-workday-sapi-absence-management-test-suite.xml" />
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest"
+		doc:id="e751fe37-22bc-4221-b690-d92b6e269e54" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="73702e02-fc4d-4a59-a26c-828d9a85f152"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[readUrl("classpath://xml/get-absence.xml","application/xml")]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref doc:name="getAbsenceManagement"
+				doc:id="0141736d-bb3d-44da-852e-25074dd7f6b5"
+				name="get-absence-management" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="35487f19-b720-42b5-a626-67ec602b312c" actual="#[payload]"
+				expected='#[readUrl("classpath://responses/get-absence.json")]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest1"
+		doc:id="4e55ace6-3d97-43f9-b791-775e964e48dd" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="867a8a23-2d40-494d-b8f0-ad2977629e1f"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="HTTP:BAD_GATEWAY" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="5d8f5825-3acc-465f-a68f-ce68714d1f59">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="20e0e9f1-d193-47b7-9510-568e14fb143a"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="cef7c708-8225-4c1d-94c1-49d69eb0e677">
+						<logger level="INFO" doc:name="HTTP:BAD_GATEWAY"
+							doc:id="5a754aa9-a71c-49a8-bd48-ed97883274ec"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="ee2ec976-c316-4a01-8baf-bf258ab76426"
+				actual="#[payload.errorType.identifier]" expected='#["BAD_GATEWAY"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest2"
+		doc:id="d06c00a9-70a2-4e69-b29d-b0b21476d40f" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="9a8c2fff-0d67-42f0-814f-fe9bf6f3aec5"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="HTTP:BAD_REQUEST" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="79b70627-6191-4de1-ba52-b350324a7152">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="a3dd9f9d-af11-4a23-bbf7-9f03b305f689"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="99da7584-169f-4e24-b619-626c2afd7a7b">
+						<logger level="INFO" doc:name="HTTP:BAD_REQUEST"
+							doc:id="574448ea-33f1-432b-8404-496c82b6d8cd"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="6b1a5496-3313-427d-a027-c56d73f0055d"
+				actual="#[payload.errorType.identifier]" expected='#["BAD_REQUEST"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest3"
+		doc:id="0a7a036f-1e1f-40db-abcf-8d22e37929d4" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="fefa2046-200d-44a6-bb78-6ba2aa9f6dab"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="HTTP:UNAUTHORIZED" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="cbae8c26-7e14-4925-8e09-8419c7a852f0">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="a4d6eb80-2f52-4794-b992-45017d053019"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="2506c25a-955d-4197-a2be-07348e771122">
+						<logger level="INFO" doc:name="HTTP:UNAUTHORIZED"
+							doc:id="7e5aa732-c9ed-48c3-942e-48bf0c2ddac3"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="e0206606-fbed-464d-90ca-d85763ca2f6d"
+				actual="#[payload.errorType.identifier]"
+				expected='#["UNAUTHORIZED"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest4"
+		doc:id="af3bec75-a1c3-422e-b29f-d5724b1a61b8" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="1ff75371-2aa0-447a-97e5-78977ffa1be4"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="HTTP:FORBIDDEN" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="5334283e-cece-41e6-98de-a9a00186abc5">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="636f884c-71e6-4aff-acb0-62d8f95a122b"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="429c92f9-a956-4a02-af35-b30541195796">
+						<logger level="INFO" doc:name="HTTP:FORBIDDEN"
+							doc:id="2a4e05f1-6b50-4bee-abf2-69e5a94f7e12"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="49368001-b17c-48dd-899d-ddf6a220608b"
+				actual="#[payload.errorType.identifier]" expected='#["FORBIDDEN"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest5"
+		doc:id="3f9bddda-cd82-41b2-b2cd-0ef0ca728425" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="334cc387-6133-44ab-b288-6cf00f1c019a"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="HTTP:NOT_FOUND" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="2476416d-d9dd-4849-8e94-1c25f0c0f783">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="e5e8af72-32ed-4e79-a76e-f46653aaaff5"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="d843681d-01d2-4e41-b543-263bedd0847e">
+						<logger level="INFO" doc:name="HTTP:NOT_FOUND"
+							doc:id="8aad3a8c-4038-49f6-8507-36db3115f960"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="306fc4cb-d161-47ba-b02a-d182bba4b354"
+				actual="#[payload.errorType.identifier]" expected='#["NOT_FOUND"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest6"
+		doc:id="5697b4fa-e817-47e0-b76a-89c282ce966f" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="4ebc22f7-171d-4938-aa89-c40397c00580"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error
+						typeId="HTTP:METHOD_NOT_ALLOWED" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="b19e1473-a87e-4570-b914-a525f3cac53c">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="d5fd650f-07e9-4337-b07a-f2b04ec8a6d2"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="3ec1767b-6120-44db-96a2-3e4fedd1ae50">
+						<logger level="INFO" doc:name="HTTP:METHOD_NOT_ALLOWED"
+							doc:id="8dc4edbd-0736-4430-ba41-dbe0435c84fa"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="252b2652-8423-4104-ba2d-258f2d72a5d8"
+				actual="#[payload.errorType.identifier]"
+				expected='#["METHOD_NOT_ALLOWED"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest7"
+		doc:id="f7b633b0-3c9b-4910-b127-6eeaea5df2f2" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="516c20dd-1c1c-4026-a370-2255447ca602"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error
+						typeId="HTTP:UNSUPPORTED_MEDIA_TYPE" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="abe4593e-2ca7-434d-9b2c-eadca37e7838">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="3be05e62-ccf1-43b0-b00f-8eb2114463b1"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="eb3a7f69-69be-4dc0-8f5d-48d5b15e5156">
+						<logger level="INFO" doc:name="HTTP:UNSUPPORTED_MEDIA_TYPE"
+							doc:id="f47fbfca-f25a-4c83-ac4b-8e0b8e8c0896" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="e6e2630a-d89d-4289-bd40-a3b18b2e16e0"
+				actual="#[payload.errorType.identifier]"
+				expected='#["UNSUPPORTED_MEDIA_TYPE"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest8"
+		doc:id="1c03dd7e-11d8-41cb-8331-68f092009e27" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="42b43d47-3129-42d4-a89c-521d482840d0"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error
+						typeId="HTTP:INTERNAL_SERVER_ERROR" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="e674ebfe-b4aa-4ee8-bd30-15be607fc12c">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="dcfc8085-2e36-4224-9f7d-ccd02a790a4a"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="4b0e8cd5-ba8f-44fd-bb3f-8969def7248c">
+						<logger level="INFO" doc:name="HTTP:INTERNAL_SERVER_ERROR"
+							doc:id="0adf9ce3-db0c-463c-8321-317862ae9c90"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="fe43dfb5-770b-47c6-ae91-c988501d9c8f"
+				actual="#[payload.errorType.identifier]"
+				expected='#["INTERNAL_SERVER_ERROR"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest9"
+		doc:id="19574162-284b-43c0-af27-9af306d18a68" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="95e4f593-b307-40d0-9c71-b62245ce47fb"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error
+						typeId="HTTP:SERVICE_UNAVAILABLE" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="06046899-10be-4ab7-b8ea-953586d70484">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="f031bd36-3051-45de-a74b-d7c1c3a33338"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="61440f86-2a07-42d1-824b-11ecdf388a44">
+						<logger level="INFO" doc:name="HTTP:SERVICE_UNAVAILABLE"
+							doc:id="cb3152c6-e1cd-4f68-800c-5ee7ab404c27"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="350c4d56-344e-42fc-92f0-196f6b08d8d9"
+				actual="#[payload.errorType.identifier]"
+				expected='#["SERVICE_UNAVAILABLE"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-absence-management-test-suite-getAbsenceManagementTest10"
+		doc:id="30aaa907-d352-47b1-8762-444a8c7c6c66" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="2854f71c-04d5-4776-b9b3-8d53ce6e5470"
+				processor="http:request">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="371b1079-c4db-4df6-afa8-e2ba2f9ec015"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="HTTP:TIMEOUT" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="f7a6dc7a-cf28-4d54-84dd-a5e31b58a0e8">
+				<flow-ref doc:name="getAbsenceManagement"
+					doc:id="1c3833b2-2751-4f6f-ade3-bc3517cd7c05"
+					name="get-absence-management" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="15eeb3c8-469b-4c18-bd94-8f39ad2bdd7e">
+						<logger level="INFO" doc:name="HTTP:TIMEOUT"
+							doc:id="9e1d9d86-328b-48cf-894b-e6f19373a4d7"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="37c1e3f8-9957-406e-8084-95f64d7e6796"
+				actual="#[payload.errorType.identifier]" expected='#["TIMEOUT"]' />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

@@ -1,0 +1,69 @@
+{
+  "Get_Job_Profiles_Response": {
+    "Response_Filter": {
+      "Page": "1"
+    },
+    "Response_Results": {
+      "Total_Results": "3",
+      "Total_Pages": "1",
+      "Page_Results": "3",
+      "Page": "1"
+    },
+    "Response_Data": {
+      "Job_Profile": {
+        "Job_Profile_Reference": {
+          "ID": "541d79e7cd25016036f272b686320549",
+          "ID": "10024"
+        },
+        "Job_Profile_Data": {
+          "Job_Code": "10024",
+          "Effective_Date": "2018-05-31-07:00",
+          "Job_Profile_Basic_Data": {
+            "Inactive": "0",
+            "Job_Title": "Business Development Manager",
+            "Include_Job_Code_in_Name": "0",
+            "Work_Shift_Required": "0",
+            "Public_Job": "0",
+            "Critical_Job": "0"
+          }
+        }
+      },
+      "Job_Profile": {
+        "Job_Profile_Reference": {
+          "ID": "541d79e7cd250108252ba5b686321749",
+          "ID": "10033"
+        },
+        "Job_Profile_Data": {
+          "Job_Code": "10033",
+          "Effective_Date": "2018-05-31-07:00",
+          "Job_Profile_Basic_Data": {
+            "Inactive": "0",
+            "Job_Title": "Retail Manager",
+            "Include_Job_Code_in_Name": "0",
+            "Work_Shift_Required": "0",
+            "Public_Job": "0",
+            "Critical_Job": "0"
+          }
+        }
+      },
+      "Job_Profile": {
+        "Job_Profile_Reference": {
+          "ID": "541d79e7cd2501290b9ca8b686321949",
+          "ID": "10034"
+        },
+        "Job_Profile_Data": {
+          "Job_Code": "10034",
+          "Effective_Date": "2018-05-31-07:00",
+          "Job_Profile_Basic_Data": {
+            "Inactive": "0",
+            "Job_Title": "Systems & Support Manager HK",
+            "Include_Job_Code_in_Name": "0",
+            "Work_Shift_Required": "0",
+            "Public_Job": "0",
+            "Critical_Job": "0"
+          }
+        }
+      }
+    }
+  }
+}

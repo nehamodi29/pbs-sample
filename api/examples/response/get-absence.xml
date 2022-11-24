@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wd:Get_Absence_Inputs_Response
+	xmlns:wd="urn:com.workday/bsvc" wd:version="v30.0">
+	<wd:Response_Filter>
+		<wd:Page>1</wd:Page>
+	</wd:Response_Filter>
+	<wd:Response_Results>
+		<wd:Total_Results>3</wd:Total_Results>
+		<wd:Total_Pages>1</wd:Total_Pages>
+		<wd:Page_Results>3</wd:Page_Results>
+		<wd:Page>1</wd:Page>
+	</wd:Response_Results>
+	<wd:Response_Data>
+		<wd:Absence_Input>
+			<wd:Absence_Input_Reference>
+				<wd:ID wd:type="WID">007d3030be3e01ac04defe80ad105c03</wd:ID>
+			</wd:Absence_Input_Reference>
+			<wd:Absence_Input_Data>
+				<wd:Worker_Reference>
+					<wd:ID wd:type="WID">69bd8d24b03601616680251c46367d47</wd:ID>
+					<wd:ID wd:type="Employee_ID">02002093</wd:ID>
+				</wd:Worker_Reference>
+				<wd:Absence_Component_Reference>
+					<wd:ID wd:type="WID">e8884ba50c21017bdc25d5aba5392405</wd:ID>
+					<wd:ID wd:type="Time_Off_Code">ABS_MULTI_Buddy_Day_Termination_Adjustment_Time_Off
+					</wd:ID>
+				</wd:Absence_Component_Reference>
+				<wd:Start_Date>2018-04-01-07:00</wd:Start_Date>
+				<wd:End_Date>2018-04-30-07:00</wd:End_Date>
+				<wd:Reference_Date>2018-04-25-07:00</wd:Reference_Date>
+				<wd:Hours>2</wd:Hours>
+				<wd:Adjustment>1</wd:Adjustment>
+			</wd:Absence_Input_Data>
+		</wd:Absence_Input>
+		<wd:Absence_Input>
+			<wd:Absence_Input_Reference>
+				<wd:ID wd:type="WID">007d3030be3e01b7ccc40281ad105d03</wd:ID>
+			</wd:Absence_Input_Reference>
+			<wd:Absence_Input_Data>
+				<wd:Worker_Reference>
+					<wd:ID wd:type="WID">69bd8d24b03601616680251c46367d47</wd:ID>
+					<wd:ID wd:type="Employee_ID">02002093</wd:ID>
+				</wd:Worker_Reference>
+				<wd:Absence_Component_Reference>
+					<wd:ID wd:type="WID">aaed0d2f4b5801d5a77f296905396009</wd:ID>
+					<wd:ID wd:type="Time_Off_Code">ABS_GBR_Study_Leave_Termination_Adjustment_Time_Off
+					</wd:ID>
+				</wd:Absence_Component_Reference>
+				<wd:Start_Date>2018-04-01-07:00</wd:Start_Date>
+				<wd:End_Date>2018-04-30-07:00</wd:End_Date>
+				<wd:Reference_Date>2018-04-25-07:00</wd:Reference_Date>
+				<wd:Hours>12</wd:Hours>
+				<wd:Adjustment>1</wd:Adjustment>
+			</wd:Absence_Input_Data>
+		</wd:Absence_Input>
+		<wd:Absence_Input>
+			<wd:Absence_Input_Reference>
+				<wd:ID wd:type="WID">007d3030be3e011cc5241081ad105e03</wd:ID>
+			</wd:Absence_Input_Reference>
+			<wd:Absence_Input_Data>
+				<wd:Worker_Reference>
+					<wd:ID wd:type="WID">69bd8d24b03601616680251c46367d47</wd:ID>
+					<wd:ID wd:type="Employee_ID">02002093</wd:ID>
+				</wd:Worker_Reference>
+				<wd:Absence_Component_Reference>
+					<wd:ID wd:type="WID">aaed0d2f4b580103dd225f02be387f06</wd:ID>
+					<wd:ID wd:type="Time_Off_Code">ABS_GBR_Holiday_Termination_Adjustment_Time_Off
+					</wd:ID>
+				</wd:Absence_Component_Reference>
+				<wd:Start_Date>2018-04-01-07:00</wd:Start_Date>
+				<wd:End_Date>2018-04-30-07:00</wd:End_Date>
+				<wd:Reference_Date>2018-04-25-07:00</wd:Reference_Date>
+				<wd:Hours>2</wd:Hours>
+				<wd:Adjustment>1</wd:Adjustment>
+			</wd:Absence_Input_Data>
+		</wd:Absence_Input>
+	</wd:Response_Data>
+</wd:Get_Absence_Inputs_Response>

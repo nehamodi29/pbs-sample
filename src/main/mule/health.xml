@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<sub-flow name="readiness-check-subflow"
+		doc:id="af56530a-2058-44bf-98a5-f783b236826a">
+		<try doc:name="Try" doc:id="0373ca7b-5984-41f4-ac20-7ae134282831">
+			<http:request method="GET" doc:name="Health Request"
+				doc:id="be49e68f-cdb8-4255-8de9-2bb3caf5e577"
+				config-ref="workdayMockSapiHttpRequestConfiguration"
+				path="${workdayMockRequest.absenceManagementPath}" />
+			<error-handler>
+				<on-error-continue enableNotifications="true"
+					logException="true" doc:name="On Error Continue"
+					doc:id="65a719a6-3ee9-494e-baab-44e5848eebbc">
+					<logger level="ERROR" doc:name="Error Logger"
+						doc:id="2e1d2317-2079-4fbe-87af-2d5acc2d30ea"
+						message="down stream service down" />
+				</on-error-continue>
+			</error-handler>
+		</try>
+		<ee:transform doc:name="Health Response"
+			doc:id="902404a0-38ae-4585-abc2-e946b937800c">
+			<ee:message>
+				<ee:set-payload resource="dwl/health.dwl" />
+			</ee:message>
+		</ee:transform>
+	</sub-flow>
+</mule>

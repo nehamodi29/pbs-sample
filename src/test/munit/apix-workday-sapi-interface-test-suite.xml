@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit"
+	xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config
+		name="apix-workday-sapi-interface-test-suite.xml" />
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-apix-workday-sapi-mainTest"
+		doc:id="95a751e3-3776-4af0-bde2-225539293539" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="6b9db815-673c-4fcb-8abd-d0d1b9e107fa"
+				processor="apikit:router">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="apixWorkdaySapiConfig" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="APIKIT:BAD_REQUEST" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="1bbec74d-f628-4d4c-82a4-fe59281eb42b">
+				<flow-ref doc:name="apix-workday-sapi-main"
+					doc:id="b7770b2a-3c49-4175-8b60-ff95bbedf786"
+					name="apix-workday-sapi-main" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="08abeca8-b306-473f-84e6-0986398adb4e">
+						<logger level="INFO" doc:name="APIKIT:BAD_REQUEST"
+							doc:id="fe5e7b1d-dd2a-4353-815d-3607b2fdb53d"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="566cfc16-1b28-484c-8d77-fb7ee275f631"
+				actual="#[payload.errorType.identifier]" expected='#["BAD_REQUEST"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-apix-workday-sapi-mainTest1"
+		doc:id="c11c4f59-a523-415c-9cb8-8c979a80bddd" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="022217e5-b2af-4b88-ac66-41e84fd68eb7"
+				processor="apikit:router">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="apixWorkdaySapiConfig" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="APIKIT:NOT_FOUND" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="553d5662-63ff-4b89-adae-d81541a1ac21">
+				<flow-ref doc:name="apix-workday-sapi-main"
+					doc:id="5bd41574-d96a-4de2-a46f-d258fd0ce965"
+					name="apix-workday-sapi-main" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="347b61c6-a7e0-45a7-9ae3-2ce5001ba797">
+						<logger level="INFO" doc:name="APIKIT:NOT_FOUND"
+							doc:id="276e1257-8fb8-48d7-8ce5-f3967985a82a"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="ab84d483-6c70-447c-ad7d-244d74df6591"
+				actual="#[payload.errorType.identifier]" expected='#["NOT_FOUND"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-apix-workday-sapi-mainTest2"
+		doc:id="a0fd6bb7-e2bc-4040-a5ff-49560dad6506" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="3c317fa1-2e97-4f1f-bc61-4134890f8071"
+				processor="apikit:router">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="apixWorkdaySapiConfig" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error
+						typeId="APIKIT:METHOD_NOT_ALLOWED" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="4441d9ea-a5c6-49e3-bb18-972f9f276ba5">
+				<flow-ref doc:name="apix-workday-sapi-main"
+					doc:id="0560e49c-a948-4952-9d98-b68d439853dd"
+					name="apix-workday-sapi-main" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="dbcc2e84-074a-4eae-9fb3-1cabbb1b25b1">
+						<logger level="INFO" doc:name="APIKIT:METHOD_NOT_ALLOWED"
+							doc:id="b7178dbf-98ea-4ce6-8bef-9aab46e67809"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="dc9d25dc-2e1f-40e7-b5fc-364047ac58dd"
+				actual="#[payload.errorType.identifier]"
+				expected='#["METHOD_NOT_ALLOWED"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-apix-workday-sapi-mainTest3"
+		doc:id="7e6d82d3-849d-4d24-8229-0fecedb699b1" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="650eb9be-5580-4532-91ab-a16144948772"
+				processor="apikit:router">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="apixWorkdaySapiConfig" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error typeId="APIKIT:NOT_ACCEPTABLE" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="b133b223-dd20-473c-b062-311687022399">
+				<flow-ref doc:name="apix-workday-sapi-main"
+					doc:id="088432c4-a009-40dd-b29e-a708f1d5a83f"
+					name="apix-workday-sapi-main" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="3c3f26f5-baf0-4598-8a70-dd3f0a8bcf7b">
+						<logger level="INFO" doc:name="APIKIT:NOT_ACCEPTABLE"
+							doc:id="092165a8-2fc2-494f-b3cc-a232c812308e"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="a43c6390-de39-43e2-a7a3-f77b337b3aab"
+				actual="#[payload.errorType.identifier]"
+				expected='#["NOT_ACCEPTABLE"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-apix-workday-sapi-mainTest4"
+		doc:id="10db35eb-aae0-4e59-8689-9f89f2bb63f4" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="27b1b8cd-c2ee-441e-9198-57b224df25c2"
+				processor="apikit:router">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="apixWorkdaySapiConfig" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error
+						typeId="APIKIT:UNSUPPORTED_MEDIA_TYPE" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="6b17d093-40d0-4b5c-9819-67019e87836b">
+				<flow-ref doc:name="apix-workday-sapi-main"
+					doc:id="72c0ec5b-482f-47d3-ba4f-ab3b43f8aa82"
+					name="apix-workday-sapi-main" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="d8cea6d7-aee0-4d09-ad61-16db921c4951">
+						<logger level="INFO"
+							doc:name="APIKIT:UNSUPPORTED_MEDIA_TYPE"
+							doc:id="ed36a47e-42f2-429b-9100-feb1f257bd13"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="4318ec02-b316-4f0e-8ad1-e4c9be641d15"
+				actual="#[payload.errorType.identifier]"
+				expected='#["UNSUPPORTED_MEDIA_TYPE"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-apix-workday-sapi-mainTest5"
+		doc:id="2bf633e3-2f75-4e52-9b6f-9a50f29eefc0" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="39451f38-0f6e-459a-ab0d-045462d606e3"
+				processor="apikit:router">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="apixWorkdaySapiConfig" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:error
+						typeId="APIKIT:NOT_IMPLEMENTED" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<try doc:name="Try" doc:id="bbcaff68-3ed0-4a9d-aaee-ea7fbde86f65">
+				<flow-ref doc:name="apix-workday-sapi-main"
+					doc:id="693cddd2-1d2d-49d9-b98d-b7a911664648"
+					name="apix-workday-sapi-main" />
+				<error-handler>
+					<on-error-continue enableNotifications="true"
+						logException="true" doc:name="On Error Continue"
+						doc:id="abfc3526-fcea-4f15-b2ed-882083928e20">
+						<logger level="INFO" doc:name="APIKIT:NOT_IMPLEMENTED"
+							doc:id="a23fb3ef-cdbd-4b72-9d52-5567900423c8"
+							message="#[payload]" />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="659a478b-2694-45cd-9f9c-7b8b19c2228b"
+				actual="#[payload.errorType.identifier]"
+				expected='#["NOT_IMPLEMENTED"]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-get:\absenceManagement:apixWorkdaySapiConfigTest"
+		doc:id="2bc311cd-0389-4791-9145-a89f2f5bd4e2" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="37f30bd3-6e47-4f17-9d8f-cb3cf0b002c7" processor="flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="27179d77-0f2b-44ec-be60-d7fe4690fc94"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[{  "Get_Absence_Inputs_Response": {    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "3",      "Total_Pages": "1",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Absence_Input": {        "Absence_Input_Reference": {          "ID": "007d3030be3e011cc5241081ad105e03"        },        "Absence_Input_Data": {          "Worker_Reference": {            "ID": "02002093"          },          "Absence_Component_Reference": {            "ID": "ABS_GBR_Holiday_Termination_Adjustment_Time_Off\n\t\t\t\t\t"          },          "Start_Date": "2018-04-01-07:00",          "End_Date": "2018-04-30-07:00",          "Reference_Date": "2018-04-25-07:00",          "Hours": "2",          "Adjustment": "1"        }      }    }  }}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref
+				doc:name="get:\absenceManagement:apixWorkdaySapiConfig"
+				doc:id="77f7eb09-af55-463a-b6d4-97e17fd11d1b"
+				name="get:\absenceManagement:apixWorkdaySapiConfig" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="01ad908b-8eb6-4182-8f1c-4d5a5d86769f" actual="#[payload]"
+				expected='#[{  "Get_Absence_Inputs_Response": {    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "3",      "Total_Pages": "1",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Absence_Input": {        "Absence_Input_Reference": {          "ID": "007d3030be3e011cc5241081ad105e03"        },        "Absence_Input_Data": {          "Worker_Reference": {            "ID": "02002093"          },          "Absence_Component_Reference": {            "ID": "ABS_GBR_Holiday_Termination_Adjustment_Time_Off\n\t\t\t\t\t"          },          "Start_Date": "2018-04-01-07:00",          "End_Date": "2018-04-30-07:00",          "Reference_Date": "2018-04-25-07:00",          "Hours": "2",          "Adjustment": "1"        }      }    }  }}]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-get:\compensation\getCompensationGradeById:apixWorkdaySapiConfigTest"
+		doc:id="173c4d71-fa97-4a14-aa87-f693645ab3b1" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="f193fa76-722d-42f9-a46d-a90719934ef5" processor="flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="52df2375-f2ce-4295-8dbe-2317e0598e78"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[{  "Get_Compensation_Grades_Response": {    "Request_References": {      "Compensation_Grade_Reference": {        "ID": "ADM"      }    },    "Response_Results": {      "Total_Results": "1",      "Total_Pages": "1",      "Page_Results": "1",      "Page": "1"    },    "Response_Data": {      "Compensation_Grade": {        "Compensation_Grade_Reference": {          "ID": "ADM"        },        "Compensation_Grade_Data": {          "Compensation_Grade_ID": "ADM",          "Effective_Date": "2018-06-05-07:00",          "Name": "ADM - US Head Office",          "Description": "ADM - US Head Office",          "Compensation_Element_Reference": {            "ID": "Base_Pay"          },          "Eligibility_Rule_Reference": {            "ID": "COMP: Country = US and Location Hierarchy =\n\t\t\t\t\t\tUS_Support_Centre_Area\n\t\t\t\t\t"          },          "Compensation_Pay_Range": {            "Number_of_Segments": "4",            "Minimum": "0",            "Midpoint": "0",            "Maximum": "0",            "Spread": "0",            "Segment_1_Top": "0",            "Segment_2_Top": "0",            "Segment_3_Top": "0",            "Segment_4_Top": "0",            "Segment_5_Top": "0",            "Currency_Reference": {              "ID": "840"            },            "Frequency_Reference": {              "ID": "Annual"            },            "Allow_Override": "0"          },          "Compensation_Grade_Profile": {            "Compensation_Grade_Profile_Reference": {              "ID": "ADM-USHO"            },            "Compensation_Grade_Profile_Data": {              "Compensation_Grade_Profile_ID": "ADM-USHO\n\t\t\t\t\t\t",              "Effective_Date": "2018-06-05-07:00",              "Name": "ADM - US Head Office",              "Description": "ADM - US Head Office",              "Compensation_Element_Reference": {                "ID": "Base_Pay"              },              "Eligibility_Rule_Reference": {                "ID": "COMP: Country = US and Location Hierarchy\n\t\t\t\t\t\t\t\t=\n\t\t\t\t\t\t\t\tUS_Support_Centre_Area\n\t\t\t\t\t\t\t"              },              "Inactive": "0",              "Compensation_Pay_Range_Data": {                "Number_of_Segments": "4",                "Minimum": "0",                "Midpoint": "0",                "Maximum": "0",                "Spread": "0",                "Segment_1_Top": "0",                "Segment_2_Top": "0",                "Segment_3_Top": "0",                "Segment_4_Top": "0",                "Segment_5_Top": "0",                "Currency_Reference": {                  "ID": "840"                },                "Frequency_Reference": {                  "ID": "Hourly"                },                "Allow_Override": "0"              }            }          },          "Assign_First_Step_During_Compensation_Proposal": "0\n\t\t\t\t",          "Inactive": "0"        }      }    }  }}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref
+				doc:name="get:\compensation\getCompensationGradeById:apixWorkdaySapiConfig"
+				doc:id="9248bbbc-0801-46c9-a3be-32ae4374d9a3"
+				name="get:\compensation\compensationGradeById:apixWorkdaySapiConfig" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="2a6169c1-4c3c-4a75-a828-fe97c4320e50" actual="#[payload]"
+				expected='#[{  "Get_Compensation_Grades_Response": {    "Request_References": {      "Compensation_Grade_Reference": {        "ID": "ADM"      }    },    "Response_Results": {      "Total_Results": "1",      "Total_Pages": "1",      "Page_Results": "1",      "Page": "1"    },    "Response_Data": {      "Compensation_Grade": {        "Compensation_Grade_Reference": {          "ID": "ADM"        },        "Compensation_Grade_Data": {          "Compensation_Grade_ID": "ADM",          "Effective_Date": "2018-06-05-07:00",          "Name": "ADM - US Head Office",          "Description": "ADM - US Head Office",          "Compensation_Element_Reference": {            "ID": "Base_Pay"          },          "Eligibility_Rule_Reference": {            "ID": "COMP: Country = US and Location Hierarchy =\n\t\t\t\t\t\tUS_Support_Centre_Area\n\t\t\t\t\t"          },          "Compensation_Pay_Range": {            "Number_of_Segments": "4",            "Minimum": "0",            "Midpoint": "0",            "Maximum": "0",            "Spread": "0",            "Segment_1_Top": "0",            "Segment_2_Top": "0",            "Segment_3_Top": "0",            "Segment_4_Top": "0",            "Segment_5_Top": "0",            "Currency_Reference": {              "ID": "840"            },            "Frequency_Reference": {              "ID": "Annual"            },            "Allow_Override": "0"          },          "Compensation_Grade_Profile": {            "Compensation_Grade_Profile_Reference": {              "ID": "ADM-USHO"            },            "Compensation_Grade_Profile_Data": {              "Compensation_Grade_Profile_ID": "ADM-USHO\n\t\t\t\t\t\t",              "Effective_Date": "2018-06-05-07:00",              "Name": "ADM - US Head Office",              "Description": "ADM - US Head Office",              "Compensation_Element_Reference": {                "ID": "Base_Pay"              },              "Eligibility_Rule_Reference": {                "ID": "COMP: Country = US and Location Hierarchy\n\t\t\t\t\t\t\t\t=\n\t\t\t\t\t\t\t\tUS_Support_Centre_Area\n\t\t\t\t\t\t\t"              },              "Inactive": "0",              "Compensation_Pay_Range_Data": {                "Number_of_Segments": "4",                "Minimum": "0",                "Midpoint": "0",                "Maximum": "0",                "Spread": "0",                "Segment_1_Top": "0",                "Segment_2_Top": "0",                "Segment_3_Top": "0",                "Segment_4_Top": "0",                "Segment_5_Top": "0",                "Currency_Reference": {                  "ID": "840"                },                "Frequency_Reference": {                  "ID": "Hourly"                },                "Allow_Override": "0"              }            }          },          "Assign_First_Step_During_Compensation_Proposal": "0\n\t\t\t\t",          "Inactive": "0"        }      }    }  }}]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-get:\humanResources\getJobProfile:apixWorkdaySapiConfigTest"
+		doc:id="9004903c-bd45-4815-8cb9-82f5b6d08b2c" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="37feadf2-0c32-4797-b12a-2c10cd44da36" processor="flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="8bb5d8e5-2986-4e49-9c36-18be45f69678"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[{  "Get_Job_Profiles_Response": {    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "3",      "Total_Pages": "1",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Job_Profile": {        "Job_Profile_Reference": {          "ID": "10034"        },        "Job_Profile_Data": {          "Job_Code": "10034",          "Effective_Date": "2018-05-31-07:00",          "Job_Profile_Basic_Data": {            "Inactive": "0",            "Job_Title": "Systems &amp; Support Manager HK",            "Include_Job_Code_in_Name": "0",            "Work_Shift_Required": "0",            "Public_Job": "0",            "Critical_Job": "0"          }        }      }    }  }}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref
+				doc:name="get:\humanResources\getJobProfile:apixWorkdaySapiConfig"
+				doc:id="e141340a-fd9e-41d0-908c-dea63fa28fee"
+				name="get:\humanResources\jobProfile:apixWorkdaySapiConfig" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="a99c0552-cceb-45e0-bcdd-2982896bc03b" actual="#[payload]"
+				expected='#[{  "Get_Job_Profiles_Response": {    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "3",      "Total_Pages": "1",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Job_Profile": {        "Job_Profile_Reference": {          "ID": "10034"        },        "Job_Profile_Data": {          "Job_Code": "10034",          "Effective_Date": "2018-05-31-07:00",          "Job_Profile_Basic_Data": {            "Inactive": "0",            "Job_Title": "Systems &amp; Support Manager HK",            "Include_Job_Code_in_Name": "0",            "Work_Shift_Required": "0",            "Public_Job": "0",            "Critical_Job": "0"          }        }      }    }  }}]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-get:\humanResources\getLocations:apixWorkdaySapiConfigTest"
+		doc:id="76413d4b-08c0-4427-a1fe-35c747171838" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="b820b6d4-0173-4f52-9e93-b34d711d82a9" processor="flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="ea0fd096-4e8f-4591-ba1f-94bd2984be08"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[{  "Get_Locations_Response": {    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "18",      "Total_Pages": "6",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Location": {        "Location_Reference": {          "ID": "GBR-71"        },        "Location_Data": {          "Location_ID": "GBR-71",          "Location_Name": "Strand, 135",          "Location_Usage_Reference": {            "ID": "BUSINESS SITE"          },          "Location_Type_Reference": {            "ID": "Shop"          },          "Location_Attribute_Reference": {            "ID": "Worker"          },          "Inactive": "0",          "Latitude": "0",          "Longitude": "0",          "Altitude": "0",          "Time_Profile_Reference": {            "ID": "Standard_Hours_35"          },          "Locale_Reference": {            "ID": "en_GB"          },          "Display_Language_Reference": {            "ID": "en_US"          },          "Time_Zone_Reference": {            "ID": "Europe/London"          },          "Default_Currency_Reference": {            "ID": "826"          },          "Contact_Data": {            "Address_Data": {              "Country_Reference": {                "ID": "826"              },              "Last_Modified": "2018-02-22T01:40:36.119-08:00\n\t\t\t\t\t\t",              "Address_Line_Data": "135 Strand",              "Municipality": "London",              "Postal_Code": "WC2R 1HH",              "Usage_Data": {                "Type_Data": {                  "Type_Reference": {                    "ID": "BUSINESS"                  }                }              },              "Number_of_Days": "0",              "Address_Reference": {                "ID": "ADDRESS_REFERENCE-6-787"              },              "Address_ID": "ADDRESS_REFERENCE-6-787"            },            "Phone_Data": {              "Country_ISO_Code": "GBR",              "International_Phone_Code": "44",              "Area_Code": "0207",              "Phone_Number": "9325271",              "Phone_Device_Type_Reference": {                "ID": "WORK"              },              "Usage_Data": {                "Type_Data": {                  "Type_Reference": {                    "ID": "BUSINESS"                  }                }              },              "Phone_Reference": {                "ID": "PHONE_REFERENCE-6-787"              },              "ID": "PHONE_REFERENCE-6-787"            }          },          "Integration_ID_Data": {            "ID": "541d79e7cd2501af8433ad262f32d525\n\t\t\t\t\t"          },          "Location_Hierarchy_Reference": {            "ID": "GBR-A101189"          }        }      }    }  }}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref
+				doc:name="get:\humanResources\getLocations:apixWorkdaySapiConfig"
+				doc:id="d0981672-715d-4304-b4b4-56894d40da34"
+				name="get:\humanResources\locations:apixWorkdaySapiConfig" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="1dc6146e-46b9-4350-aa74-bd2683868d73" actual="#[payload]"
+				expected='#[{  "Get_Locations_Response": {    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "18",      "Total_Pages": "6",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Location": {        "Location_Reference": {          "ID": "GBR-71"        },        "Location_Data": {          "Location_ID": "GBR-71",          "Location_Name": "Strand, 135",          "Location_Usage_Reference": {            "ID": "BUSINESS SITE"          },          "Location_Type_Reference": {            "ID": "Shop"          },          "Location_Attribute_Reference": {            "ID": "Worker"          },          "Inactive": "0",          "Latitude": "0",          "Longitude": "0",          "Altitude": "0",          "Time_Profile_Reference": {            "ID": "Standard_Hours_35"          },          "Locale_Reference": {            "ID": "en_GB"          },          "Display_Language_Reference": {            "ID": "en_US"          },          "Time_Zone_Reference": {            "ID": "Europe/London"          },          "Default_Currency_Reference": {            "ID": "826"          },          "Contact_Data": {            "Address_Data": {              "Country_Reference": {                "ID": "826"              },              "Last_Modified": "2018-02-22T01:40:36.119-08:00\n\t\t\t\t\t\t",              "Address_Line_Data": "135 Strand",              "Municipality": "London",              "Postal_Code": "WC2R 1HH",              "Usage_Data": {                "Type_Data": {                  "Type_Reference": {                    "ID": "BUSINESS"                  }                }              },              "Number_of_Days": "0",              "Address_Reference": {                "ID": "ADDRESS_REFERENCE-6-787"              },              "Address_ID": "ADDRESS_REFERENCE-6-787"            },            "Phone_Data": {              "Country_ISO_Code": "GBR",              "International_Phone_Code": "44",              "Area_Code": "0207",              "Phone_Number": "9325271",              "Phone_Device_Type_Reference": {                "ID": "WORK"              },              "Usage_Data": {                "Type_Data": {                  "Type_Reference": {                    "ID": "BUSINESS"                  }                }              },              "Phone_Reference": {                "ID": "PHONE_REFERENCE-6-787"              },              "ID": "PHONE_REFERENCE-6-787"            }          },          "Integration_ID_Data": {            "ID": "541d79e7cd2501af8433ad262f32d525\n\t\t\t\t\t"          },          "Location_Hierarchy_Reference": {            "ID": "GBR-A101189"          }        }      }    }  }}]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-get:\humanResources\getWorkers:apixWorkdaySapiConfigTest"
+		doc:id="8373d38a-fec4-4833-8eb2-99f4693144b9" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="43773c47-335e-4892-9f1c-9beb25e6a996" processor="flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="081daf4d-7e58-4c01-b0f7-e0a50e535934"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[{  "Get_Workers_Response": {    "Request_Criteria": {      "Exclude_Inactive_Workers": "1",      "Exclude_Employees": "0",      "Exclude_Contingent_Workers": "0"    },    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "3",      "Total_Pages": "1",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Worker": {        "Worker_Reference": {          "ID": "00000040"        },        "Worker_Descriptor": "Valerie Pirovano",        "Worker_Data": {          "Worker_ID": "00000040",          "User_ID": "00000040",          "Personal_Data": {            "Name_Data": {              "Legal_Name_Data": {                "Name_Detail_Data": {                  "Country_Reference": {                    "ID": "826"                  },                  "Prefix_Data": {                    "Title_Reference": {                      "ID": "GBR_Miss"                    },                    "Title_Descriptor": "Miss"                  },                  "First_Name": "Valerie",                  "Last_Name": "Pirovano"                }              },              "Preferred_Name_Data": {                "Name_Detail_Data": {                  "Country_Reference": {                    "ID": "826"                  },                  "Prefix_Data": {                    "Title_Reference": {                      "ID": "GBR_Miss"                    },                    "Title_Descriptor": "Miss"                  },                  "First_Name": "Valerie",                  "Last_Name": "Pirovano"                }              }            },            "Identification_Data": {              "National_ID": {                "National_ID_Reference": {                  "ID": "69bd8d24b03601162d3232b1823628ef"                },                "National_ID_Data": {                  "ID": "PB196303D",                  "ID_Type_Reference": {                    "ID": "GBR-NI"                  },                  "Country_Reference": {                    "ID": "826"                  }                },                "National_ID_Shared_Reference": {                  "ID": "NATIONAL_IDENTIFIER_REFERENCE-6-3"                }              }            },            "Contact_Data": {              "Address_Data": {                "Country_Reference": {                  "ID": "826"                },                "Last_Modified": "2018-03-06T04:38:46.489-08:00\n\t\t\t\t\t\t\t",                "Address_Line_Data": "Railway Approach",                "Municipality": "Harrow",                "Postal_Code": "HA1 1XF",                "Usage_Data": {                  "Type_Data": {                    "Type_Reference": {                      "ID": "HOME"                    }                  }                },                "Number_of_Days": "0",                "Address_Reference": {                  "ID": "ADDRESS_REFERENCE-6-937"                },                "Address_ID": "ADDRESS_REFERENCE-6-937"              },              "Phone_Data": {                "Country_ISO_Code": "GBR",                "International_Phone_Code": "44",                "Phone_Number": "7.736674527E9",                "Phone_Device_Type_Reference": {                  "ID": "BUSN"                },                "Usage_Data": {                  "Type_Data": {                    "Type_Reference": {                      "ID": "WORK"                    }                  }                },                "Phone_Reference": {                  "ID": "PHONE_REFERENCE-6-10579"                },                "ID": "PHONE_REFERENCE-6-10579"              },              "Email_Address_Data": {                "Email_Address": "sendtest@succeedconsultancy.com\n\t\t\t\t\t\t\t",                "Usage_Data": {                  "Type_Data": {                    "Type_Reference": {                      "ID": "HOME"                    }                  }                },                "Email_Reference": {                  "ID": "EMAIL_REFERENCE-6-23"                },                "ID": "EMAIL_REFERENCE-6-23"              }            },            "Tobacco_Use": "0"          },          "Employment_Data": {            "Worker_Job_Data": {              "Position_Data": {                "Position_Reference": {                  "ID": "10139"                },                "Position_ID": "10139",                "Position_Title": "Assist Man - FOH Old Broad Str\n\t\t\t\t\t\t\t",                "Business_Title": "Assist Man - FOH Cannon Stree\n\t\t\t\t\t\t\t",                "Start_Date": "1997-04-03-08:00",                "Worker_Type_Reference": {                  "ID": "105"                },                "Position_Time_Type_Reference": {                  "ID": "Full_time"                },                "Job_Exempt": "0",                "Scheduled_Weekly_Hours": "42",                "Default_Weekly_Hours": "42",                "Working_Time_Value": "0",                "Full_Time_Equivalent_Percentage": "100\n\t\t\t\t\t\t\t",                "Exclude_from_Headcount": "0",                "Pay_Rate_Type_Reference": {                  "ID": "ANNUAL"                },                "Job_Profile_Summary_Data": {                  "Job_Profile_Reference": {                    "ID": "10001"                  },                  "Job_Exempt": "0",                  "Job_Profile_Name": "Assist Man - FOH",                  "Work_Shift_Required": "0",                  "Critical_Job": "0"                },                "Business_Site_Summary_Data": {                  "Location_Reference": {                    "ID": "GBR-382"                  },                  "Name": "Old Broad Street, 125",                  "Location_Type_Reference": {                    "ID": "Shop"                  },                  "Local_Reference": {                    "ID": "en_GB"                  },                  "Display_Language_Reference": {                    "ID": "en_US"                  },                  "Time_Profile_Reference": {                    "ID": "Standard_Hours_35"                  },                  "Scheduled_Weekly_Hours": "35",                  "Address_Data": {                    "Country_Reference": {                      "ID": "826"                    },                    "Last_Modified": "2018-02-22T01:40:27.184-08:00\n\t\t\t\t\t\t\t\t\t",                    "Address_Line_Data": "125 Old Broad Street",                    "Municipality": "London",                    "Postal_Code": "EC2N 1DW",                    "Usage_Data": {                      "Type_Data": {                        "Type_Reference": {                          "ID": "BUSINESS"                        }                      }                    },                    "Number_of_Days": "0",                    "Address_Reference": {                      "ID": "ADDRESS_REFERENCE-6-671"                    },                    "Address_ID": "ADDRESS_REFERENCE-6-671"                  }                },                "Payroll_Interface_Processing_Data": {                  "Frequency_Reference": {                    "ID": "Monthly"                  }                },                "Manager_as_of_last_detected_manager_change_Reference": {                  "ID": "02011185"                }              }            },            "Worker_Status_Data": {              "Active": "1",              "Active_Status_Date": "1997-04-03-08:00",              "Hire_Date": "1997-04-03-08:00",              "Original_Hire_Date": "1997-04-03-08:00",              "Hire_Reason_Reference": {                "ID": "Hire_Employee_Data_Conversion_Data_Conversion\n\t\t\t\t\t\t\t"              },              "Continuous_Service_Date": "1997-04-03-08:00\n\t\t\t\t\t\t",              "First_Day_of_Work": "1997-04-03-08:00",              "Retired": "0",              "Seniority_Date": "1997-04-03-08:00",              "Company_Service_Date": "1997-04-03-08:00\n\t\t\t\t\t\t",              "Days_Unemployed": "0",              "Months_Continuous_Prior_Employment": "0\n\t\t\t\t\t\t",              "Terminated": "0",              "Not_Eligible_for_Hire": "0",              "Regrettable_Termination": "0",              "Not_Eligible_for_Rehire": "0",              "Hire_Rescinded": "0",              "Not_Returning": "0",              "Return_Unknown": "0",              "Rehire": "0"            },            "International_Assignment_Summary_Data": {              "Has_International_Assignment": "0\n\t\t\t\t\t\t",              "Home_Country_Reference": {                "ID": "826"              }            }          }        }      }    }  }}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref
+				doc:name="get:\humanResources\getWorkers:apixWorkdaySapiConfig"
+				doc:id="17d345b7-fbcf-4591-a34d-54e32e50ef4e"
+				name="get:\humanResources\workers:apixWorkdaySapiConfig" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="f547754e-aae8-4465-a9dc-224e3309e1ce" actual="#[payload]"
+				expected='#[{  "Get_Workers_Response": {    "Request_Criteria": {      "Exclude_Inactive_Workers": "1",      "Exclude_Employees": "0",      "Exclude_Contingent_Workers": "0"    },    "Response_Filter": {      "Page": "1"    },    "Response_Results": {      "Total_Results": "3",      "Total_Pages": "1",      "Page_Results": "3",      "Page": "1"    },    "Response_Data": {      "Worker": {        "Worker_Reference": {          "ID": "00000040"        },        "Worker_Descriptor": "Valerie Pirovano",        "Worker_Data": {          "Worker_ID": "00000040",          "User_ID": "00000040",          "Personal_Data": {            "Name_Data": {              "Legal_Name_Data": {                "Name_Detail_Data": {                  "Country_Reference": {                    "ID": "826"                  },                  "Prefix_Data": {                    "Title_Reference": {                      "ID": "GBR_Miss"                    },                    "Title_Descriptor": "Miss"                  },                  "First_Name": "Valerie",                  "Last_Name": "Pirovano"                }              },              "Preferred_Name_Data": {                "Name_Detail_Data": {                  "Country_Reference": {                    "ID": "826"                  },                  "Prefix_Data": {                    "Title_Reference": {                      "ID": "GBR_Miss"                    },                    "Title_Descriptor": "Miss"                  },                  "First_Name": "Valerie",                  "Last_Name": "Pirovano"                }              }            },            "Identification_Data": {              "National_ID": {                "National_ID_Reference": {                  "ID": "69bd8d24b03601162d3232b1823628ef"                },                "National_ID_Data": {                  "ID": "PB196303D",                  "ID_Type_Reference": {                    "ID": "GBR-NI"                  },                  "Country_Reference": {                    "ID": "826"                  }                },                "National_ID_Shared_Reference": {                  "ID": "NATIONAL_IDENTIFIER_REFERENCE-6-3"                }              }            },            "Contact_Data": {              "Address_Data": {                "Country_Reference": {                  "ID": "826"                },                "Last_Modified": "2018-03-06T04:38:46.489-08:00\n\t\t\t\t\t\t\t",                "Address_Line_Data": "Railway Approach",                "Municipality": "Harrow",                "Postal_Code": "HA1 1XF",                "Usage_Data": {                  "Type_Data": {                    "Type_Reference": {                      "ID": "HOME"                    }                  }                },                "Number_of_Days": "0",                "Address_Reference": {                  "ID": "ADDRESS_REFERENCE-6-937"                },                "Address_ID": "ADDRESS_REFERENCE-6-937"              },              "Phone_Data": {                "Country_ISO_Code": "GBR",                "International_Phone_Code": "44",                "Phone_Number": "7.736674527E9",                "Phone_Device_Type_Reference": {                  "ID": "BUSN"                },                "Usage_Data": {                  "Type_Data": {                    "Type_Reference": {                      "ID": "WORK"                    }                  }                },                "Phone_Reference": {                  "ID": "PHONE_REFERENCE-6-10579"                },                "ID": "PHONE_REFERENCE-6-10579"              },              "Email_Address_Data": {                "Email_Address": "sendtest@succeedconsultancy.com\n\t\t\t\t\t\t\t",                "Usage_Data": {                  "Type_Data": {                    "Type_Reference": {                      "ID": "HOME"                    }                  }                },                "Email_Reference": {                  "ID": "EMAIL_REFERENCE-6-23"                },                "ID": "EMAIL_REFERENCE-6-23"              }            },            "Tobacco_Use": "0"          },          "Employment_Data": {            "Worker_Job_Data": {              "Position_Data": {                "Position_Reference": {                  "ID": "10139"                },                "Position_ID": "10139",                "Position_Title": "Assist Man - FOH Old Broad Str\n\t\t\t\t\t\t\t",                "Business_Title": "Assist Man - FOH Cannon Stree\n\t\t\t\t\t\t\t",                "Start_Date": "1997-04-03-08:00",                "Worker_Type_Reference": {                  "ID": "105"                },                "Position_Time_Type_Reference": {                  "ID": "Full_time"                },                "Job_Exempt": "0",                "Scheduled_Weekly_Hours": "42",                "Default_Weekly_Hours": "42",                "Working_Time_Value": "0",                "Full_Time_Equivalent_Percentage": "100\n\t\t\t\t\t\t\t",                "Exclude_from_Headcount": "0",                "Pay_Rate_Type_Reference": {                  "ID": "ANNUAL"                },                "Job_Profile_Summary_Data": {                  "Job_Profile_Reference": {                    "ID": "10001"                  },                  "Job_Exempt": "0",                  "Job_Profile_Name": "Assist Man - FOH",                  "Work_Shift_Required": "0",                  "Critical_Job": "0"                },                "Business_Site_Summary_Data": {                  "Location_Reference": {                    "ID": "GBR-382"                  },                  "Name": "Old Broad Street, 125",                  "Location_Type_Reference": {                    "ID": "Shop"                  },                  "Local_Reference": {                    "ID": "en_GB"                  },                  "Display_Language_Reference": {                    "ID": "en_US"                  },                  "Time_Profile_Reference": {                    "ID": "Standard_Hours_35"                  },                  "Scheduled_Weekly_Hours": "35",                  "Address_Data": {                    "Country_Reference": {                      "ID": "826"                    },                    "Last_Modified": "2018-02-22T01:40:27.184-08:00\n\t\t\t\t\t\t\t\t\t",                    "Address_Line_Data": "125 Old Broad Street",                    "Municipality": "London",                    "Postal_Code": "EC2N 1DW",                    "Usage_Data": {                      "Type_Data": {                        "Type_Reference": {                          "ID": "BUSINESS"                        }                      }                    },                    "Number_of_Days": "0",                    "Address_Reference": {                      "ID": "ADDRESS_REFERENCE-6-671"                    },                    "Address_ID": "ADDRESS_REFERENCE-6-671"                  }                },                "Payroll_Interface_Processing_Data": {                  "Frequency_Reference": {                    "ID": "Monthly"                  }                },                "Manager_as_of_last_detected_manager_change_Reference": {                  "ID": "02011185"                }              }            },            "Worker_Status_Data": {              "Active": "1",              "Active_Status_Date": "1997-04-03-08:00",              "Hire_Date": "1997-04-03-08:00",              "Original_Hire_Date": "1997-04-03-08:00",              "Hire_Reason_Reference": {                "ID": "Hire_Employee_Data_Conversion_Data_Conversion\n\t\t\t\t\t\t\t"              },              "Continuous_Service_Date": "1997-04-03-08:00\n\t\t\t\t\t\t",              "First_Day_of_Work": "1997-04-03-08:00",              "Retired": "0",              "Seniority_Date": "1997-04-03-08:00",              "Company_Service_Date": "1997-04-03-08:00\n\t\t\t\t\t\t",              "Days_Unemployed": "0",              "Months_Continuous_Prior_Employment": "0\n\t\t\t\t\t\t",              "Terminated": "0",              "Not_Eligible_for_Hire": "0",              "Regrettable_Termination": "0",              "Not_Eligible_for_Rehire": "0",              "Hire_Rescinded": "0",              "Not_Returning": "0",              "Return_Unknown": "0",              "Rehire": "0"            },            "International_Assignment_Summary_Data": {              "Has_International_Assignment": "0\n\t\t\t\t\t\t",              "Home_Country_Reference": {                "ID": "826"              }            }          }        }      }    }  }}]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-get:\payroll\GetAdvancedLookupTables:apixWorkdaySapiConfigTest"
+		doc:id="af14c2e1-e431-4323-b61f-e26378d7a775" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="cda68114-66a6-4eb5-9d4f-a07ee5fef24c" processor="flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="07fef659-b5ca-4ddb-a48a-af25dd2e03cc"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[{    "Get_Advanced_Lookup_Tables_Response": {        "Request_References": {            "Advanced_Lookup_Table_Reference": {                "ID": "string"            }        },        "Request_Criteria": null,        "Response_Filter": {            "As_Of_Effective_Date": "2008-09-29",            "As_Of_Entry_DateTime": "2014-09-18T23:18:33",            "Page": "1000.00",            "Count": "1000.00"        },        "Response_Group": {            "Include_Reference": "true"        },        "Response_Results": {            "Total_Results": "1000.00",            "Total_Pages": "1000.00",            "Page_Results": "1000.00",            "Page": "1000.00"        },        "Response_Data": {            "Advanced_Lookup_Table": {                "Advanced_Lookup_Table_Reference": {                    "ID": "string"                },                "Advanced_Lookup_Table_Data": {                    "Advanced_Lookup_Table_ID": "string",                    "Lookup_Table_Name": "string",                    "Comment": "string",                    "Lookup_Table_Category_Reference": {                        "ID": "string"                    },                    "Context_Instance_Display_Name_-_Read_Only": "string",                    "Context_Instance_Reference": {                        "ID": "string"                    },                    "Search_Criteria_Display_Name_-_Read_Only": "string",                    "Search_Criteria_ID_Reference": {                        "ID": "string"                    },                    "Numeric_Search_Criteria_ID_Reference": {                        "ID": "string"                    },                    "Country_Reference": {                        "ID": "string"                    },                    "Column_Data": {                        "Order": "string",                        "Column_Name": "string",                        "Display_On_Page": "false"                    },                    "Snapshot_Data": {                        "Effective_Date": "2008-11-15",                        "Row_Data": {                            "Lookup_Table_Row_Instance": "string",                            "Report_Field_Search_Value_Display_Name_-_Read_Only": "string",                            "Report_Field_Search_Value_Reference": {                                "ID": "string"                            },                            "Numeric_Search_Value": "1000.00",                            "Text_Search_Value": "string",                            "Default": "true",                            "Lookup_Return_Amount_a": "1000.00",                            "Lookup_Return_Amount_b": "1000.00",                            "Lookup_Return_Amount_c": "1000.00",                            "Lookup_Return_Amount_d": "1000.00",                            "Lookup_Return_Amount_e": "1000.00",                            "Lookup_Return_Amount_f": "1000.00",                            "Lookup_Return_Amount_g": "1000.00",                            "Lookup_Return_Amount_h": "1000.00",                            "Lookup_Return_Amount_i": "1000.00",                            "Lookup_Return_Amount_j": "1000.00"                        }                    }                }            }        }    }}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref
+				doc:name="get:\payroll\GetAdvancedLookupTables:apixWorkdaySapiConfig"
+				doc:id="d18e7a6f-5018-4de7-a3cd-7bcdb27a29c4"
+				name="get:\payroll\advancedLookupTables:apixWorkdaySapiConfig" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="fa1baa2a-eb20-4a42-bc42-c84195c253bf" actual="#[payload]"
+				expected='#[{    "Get_Advanced_Lookup_Tables_Response": {        "Request_References": {            "Advanced_Lookup_Table_Reference": {                "ID": "string"            }        },        "Request_Criteria": null,        "Response_Filter": {            "As_Of_Effective_Date": "2008-09-29",            "As_Of_Entry_DateTime": "2014-09-18T23:18:33",            "Page": "1000.00",            "Count": "1000.00"        },        "Response_Group": {            "Include_Reference": "true"        },        "Response_Results": {            "Total_Results": "1000.00",            "Total_Pages": "1000.00",            "Page_Results": "1000.00",            "Page": "1000.00"        },        "Response_Data": {            "Advanced_Lookup_Table": {                "Advanced_Lookup_Table_Reference": {                    "ID": "string"                },                "Advanced_Lookup_Table_Data": {                    "Advanced_Lookup_Table_ID": "string",                    "Lookup_Table_Name": "string",                    "Comment": "string",                    "Lookup_Table_Category_Reference": {                        "ID": "string"                    },                    "Context_Instance_Display_Name_-_Read_Only": "string",                    "Context_Instance_Reference": {                        "ID": "string"                    },                    "Search_Criteria_Display_Name_-_Read_Only": "string",                    "Search_Criteria_ID_Reference": {                        "ID": "string"                    },                    "Numeric_Search_Criteria_ID_Reference": {                        "ID": "string"                    },                    "Country_Reference": {                        "ID": "string"                    },                    "Column_Data": {                        "Order": "string",                        "Column_Name": "string",                        "Display_On_Page": "false"                    },                    "Snapshot_Data": {                        "Effective_Date": "2008-11-15",                        "Row_Data": {                            "Lookup_Table_Row_Instance": "string",                            "Report_Field_Search_Value_Display_Name_-_Read_Only": "string",                            "Report_Field_Search_Value_Reference": {                                "ID": "string"                            },                            "Numeric_Search_Value": "1000.00",                            "Text_Search_Value": "string",                            "Default": "true",                            "Lookup_Return_Amount_a": "1000.00",                            "Lookup_Return_Amount_b": "1000.00",                            "Lookup_Return_Amount_c": "1000.00",                            "Lookup_Return_Amount_d": "1000.00",                            "Lookup_Return_Amount_e": "1000.00",                            "Lookup_Return_Amount_f": "1000.00",                            "Lookup_Return_Amount_g": "1000.00",                            "Lookup_Return_Amount_h": "1000.00",                            "Lookup_Return_Amount_i": "1000.00",                            "Lookup_Return_Amount_j": "1000.00"                        }                    }                }            }        }    }}]' />
+		</munit:validation>
+	</munit:test>
+	<munit:test
+		name="apix-workday-sapi-interface-test-suite-get:\payroll\GetCompanyPaymentDates:apixWorkdaySapiConfigTest"
+		doc:id="db13c545-5226-4565-ae8e-f4e3f7dd86bd" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when"
+				doc:id="926a0926-debe-4062-8365-d795748f3ef4" processor="flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute
+						whereValue="8c6e1192-6bb7-4c9c-8662-b87b51b0c071"
+						attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload
+						value='#[{    "Get_Company_Payment_Dates_Response": {        "Request_Criteria": {            "Company_Reference": {                "ID": "string"            },            "Include_Related_Companies_for_Legal_Entity": "false",            "Result_Completed_From": "2007-10-26T06:36:28",            "Result_Completed_To": "2004-02-14T18:44:14"        },        "Response_Filter": {            "As_Of_Effective_Date": "2018-11-01+00:00",            "As_Of_Entry_DateTime": "2013-05-22T01:02:49+00:00",            "Page": "1000.00",            "Count": "1000.00"        },        "Response_Results": {            "Total_Results": "1000.00",            "Total_Pages": "1000.00",            "Page_Results": "1000.00",            "Page": "1000.00"        },        "Response_Data": {            "Company_Payment_Dates_Data": {                "Company_Reference": {                    "ID": "string"                },                "Payment_Date": "2002-11-05+00:00"            }        }    }}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref
+				doc:name="get:\payroll\GetCompanyPaymentDates:apixWorkdaySapiConfig"
+				doc:id="9e616afb-bf31-4cf5-99e9-b97e81998547"
+				name="get:\payroll\companyPaymentDates:apixWorkdaySapiConfig" />
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals
+				doc:name="Assert equals"
+				doc:id="7a831f76-b3a6-45b2-81bd-4533324fd703" actual="#[payload]"
+				expected='#[{    "Get_Company_Payment_Dates_Response": {        "Request_Criteria": {            "Company_Reference": {                "ID": "string"            },            "Include_Related_Companies_for_Legal_Entity": "false",            "Result_Completed_From": "2007-10-26T06:36:28",            "Result_Completed_To": "2004-02-14T18:44:14"        },        "Response_Filter": {            "As_Of_Effective_Date": "2018-11-01+00:00",            "As_Of_Entry_DateTime": "2013-05-22T01:02:49+00:00",            "Page": "1000.00",            "Count": "1000.00"        },        "Response_Results": {            "Total_Results": "1000.00",            "Total_Pages": "1000.00",            "Page_Results": "1000.00",            "Page": "1000.00"        },        "Response_Data": {            "Company_Payment_Dates_Data": {                "Company_Reference": {                    "ID": "string"                },                "Payment_Date": "2002-11-05+00:00"            }        }    }}]' />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

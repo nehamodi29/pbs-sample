@@ -1,0 +1,139 @@
+<bsvc:Get_Advanced_Lookup_Tables_Response bsvc:version="string" xmlns:bsvc="urn:com.workday/bsvc">
+  <!--Optional:-->
+  <bsvc:Request_References>
+    <!--1 or more repetitions:-->
+    <bsvc:Advanced_Lookup_Table_Reference bsvc:Descriptor="string">
+      <!--Zero or more repetitions:-->
+      <bsvc:ID bsvc:type="string">string</bsvc:ID>
+    </bsvc:Advanced_Lookup_Table_Reference>
+  </bsvc:Request_References>
+  <!--Optional:-->
+  <bsvc:Request_Criteria/>
+  <!--Optional:-->
+  <bsvc:Response_Filter>
+    <!--Optional:-->
+    <bsvc:As_Of_Effective_Date>2008-09-29</bsvc:As_Of_Effective_Date>
+    <!--Optional:-->
+    <bsvc:As_Of_Entry_DateTime>2014-09-18T23:18:33</bsvc:As_Of_Entry_DateTime>
+    <!--Optional:-->
+    <bsvc:Page>1000.00</bsvc:Page>
+    <!--Optional:-->
+    <bsvc:Count>1000.00</bsvc:Count>
+  </bsvc:Response_Filter>
+  <!--Optional:-->
+  <bsvc:Response_Group>
+    <!--Optional:-->
+    <bsvc:Include_Reference>true</bsvc:Include_Reference>
+  </bsvc:Response_Group>
+  <!--Optional:-->
+  <bsvc:Response_Results>
+    <!--Optional:-->
+    <bsvc:Total_Results>1000.00</bsvc:Total_Results>
+    <!--Optional:-->
+    <bsvc:Total_Pages>1000.00</bsvc:Total_Pages>
+    <!--Optional:-->
+    <bsvc:Page_Results>1000.00</bsvc:Page_Results>
+    <!--Optional:-->
+    <bsvc:Page>1000.00</bsvc:Page>
+  </bsvc:Response_Results>
+  <!--Optional:-->
+  <bsvc:Response_Data>
+    <!--Zero or more repetitions:-->
+    <bsvc:Advanced_Lookup_Table>
+      <!--Optional:-->
+      <bsvc:Advanced_Lookup_Table_Reference bsvc:Descriptor="string">
+        <!--Zero or more repetitions:-->
+        <bsvc:ID bsvc:type="string">string</bsvc:ID>
+      </bsvc:Advanced_Lookup_Table_Reference>
+      <!--Zero or more repetitions:-->
+      <bsvc:Advanced_Lookup_Table_Data>
+        <!--Optional:-->
+        <bsvc:Advanced_Lookup_Table_ID>string</bsvc:Advanced_Lookup_Table_ID>
+        <bsvc:Lookup_Table_Name>string</bsvc:Lookup_Table_Name>
+        <!--Optional:-->
+        <bsvc:Comment>string</bsvc:Comment>
+        <!--1 or more repetitions:-->
+        <bsvc:Lookup_Table_Category_Reference bsvc:Descriptor="string">
+          <!--Zero or more repetitions:-->
+          <bsvc:ID bsvc:type="string">string</bsvc:ID>
+        </bsvc:Lookup_Table_Category_Reference>
+        <!--Optional:-->
+        <bsvc:Context_Instance_Display_Name_-_Read_Only>string</bsvc:Context_Instance_Display_Name_-_Read_Only>
+        <!--Optional:-->
+        <bsvc:Context_Instance_Reference bsvc:Descriptor="string">
+          <!--Zero or more repetitions:-->
+          <bsvc:ID bsvc:type="string">string</bsvc:ID>
+        </bsvc:Context_Instance_Reference>
+        <!--Optional:-->
+        <bsvc:Search_Criteria_Display_Name_-_Read_Only>string</bsvc:Search_Criteria_Display_Name_-_Read_Only>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <!--Optional:-->
+        <bsvc:Search_Criteria_ID_Reference bsvc:Descriptor="string">
+          <!--Zero or more repetitions:-->
+          <bsvc:ID bsvc:type="string">string</bsvc:ID>
+        </bsvc:Search_Criteria_ID_Reference>
+        <!--Optional:-->
+        <bsvc:Numeric_Search_Criteria_ID_Reference bsvc:Descriptor="string">
+          <!--Zero or more repetitions:-->
+          <bsvc:ID bsvc:type="string">string</bsvc:ID>
+        </bsvc:Numeric_Search_Criteria_ID_Reference>
+        <!--Zero or more repetitions:-->
+        <bsvc:Country_Reference bsvc:Descriptor="string">
+          <!--Zero or more repetitions:-->
+          <bsvc:ID bsvc:type="string">string</bsvc:ID>
+        </bsvc:Country_Reference>
+        <!--Zero or more repetitions:-->
+        <bsvc:Column_Data>
+          <bsvc:Order>string</bsvc:Order>
+          <!--Optional:-->
+          <bsvc:Column_Name>string</bsvc:Column_Name>
+          <!--Optional:-->
+          <bsvc:Display_On_Page>false</bsvc:Display_On_Page>
+        </bsvc:Column_Data>
+        <!--Zero or more repetitions:-->
+        <bsvc:Snapshot_Data>
+          <bsvc:Effective_Date>2008-11-15</bsvc:Effective_Date>
+          <!--Zero or more repetitions:-->
+          <bsvc:Row_Data>
+            <!--Optional:-->
+            <bsvc:Lookup_Table_Row_Instance>string</bsvc:Lookup_Table_Row_Instance>
+            <!--Optional:-->
+            <bsvc:Report_Field_Search_Value_Display_Name_-_Read_Only>string</bsvc:Report_Field_Search_Value_Display_Name_-_Read_Only>
+            <!--You have a CHOICE of the next 3 items at this level-->
+            <!--Optional:-->
+            <bsvc:Report_Field_Search_Value_Reference bsvc:Descriptor="string">
+              <!--Zero or more repetitions:-->
+              <bsvc:ID bsvc:parent_id="string" bsvc:parent_type="string" bsvc:type="string">string</bsvc:ID>
+            </bsvc:Report_Field_Search_Value_Reference>
+            <!--Optional:-->
+            <bsvc:Numeric_Search_Value>1000.00</bsvc:Numeric_Search_Value>
+            <!--Optional:-->
+            <bsvc:Text_Search_Value>string</bsvc:Text_Search_Value>
+            <!--Optional:-->
+            <bsvc:Default>true</bsvc:Default>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_a>1000.00</bsvc:Lookup_Return_Amount_a>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_b>1000.00</bsvc:Lookup_Return_Amount_b>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_c>1000.00</bsvc:Lookup_Return_Amount_c>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_d>1000.00</bsvc:Lookup_Return_Amount_d>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_e>1000.00</bsvc:Lookup_Return_Amount_e>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_f>1000.00</bsvc:Lookup_Return_Amount_f>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_g>1000.00</bsvc:Lookup_Return_Amount_g>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_h>1000.00</bsvc:Lookup_Return_Amount_h>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_i>1000.00</bsvc:Lookup_Return_Amount_i>
+            <!--Optional:-->
+            <bsvc:Lookup_Return_Amount_j>1000.00</bsvc:Lookup_Return_Amount_j>
+          </bsvc:Row_Data>
+        </bsvc:Snapshot_Data>
+      </bsvc:Advanced_Lookup_Table_Data>
+    </bsvc:Advanced_Lookup_Table>
+  </bsvc:Response_Data>
+</bsvc:Get_Advanced_Lookup_Tables_Response>

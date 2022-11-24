@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wd:Get_Locations_Response xmlns:wd="urn:com.workday/bsvc"
+	wd:version="v30.0">
+	<wd:Response_Filter>
+		<wd:Page>1</wd:Page>
+	</wd:Response_Filter>
+	<wd:Response_Results>
+		<wd:Total_Results>18</wd:Total_Results>
+		<wd:Total_Pages>6</wd:Total_Pages>
+		<wd:Page_Results>3</wd:Page_Results>
+		<wd:Page>1</wd:Page>
+	</wd:Response_Results>
+	<wd:Response_Data>
+		<wd:Location>
+			<wd:Location_Reference>
+				<wd:ID wd:type="WID">541d79e7cd2501ef5a5fb5262f32e525</wd:ID>
+				<wd:ID wd:type="Location_ID">GBR-73</wd:ID>
+			</wd:Location_Reference>
+			<wd:Location_Data>
+				<wd:Location_ID>GBR-73</wd:Location_ID>
+				<wd:Location_Name>Aldgate</wd:Location_Name>
+				<wd:Location_Usage_Reference>
+					<wd:ID wd:type="WID">46db411c4a5245fbb39834d8b2cba049</wd:ID>
+					<wd:ID wd:type="Location_Usage_ID">BUSINESS SITE</wd:ID>
+				</wd:Location_Usage_Reference>
+				<wd:Location_Type_Reference>
+					<wd:ID wd:type="WID">541d79e7cd25016f3bffd854e931b518</wd:ID>
+					<wd:ID wd:type="Location_Type_ID">Pay Area 1</wd:ID>
+				</wd:Location_Type_Reference>
+				<wd:Location_Type_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250114f8cbd854e931b018</wd:ID>
+					<wd:ID wd:type="Location_Type_ID">Shop</wd:ID>
+				</wd:Location_Type_Reference>
+				<wd:Location_Attribute_Reference>
+					<wd:ID wd:type="WID">541d79e7cd25018528fa5486e931b918</wd:ID>
+					<wd:ID wd:type="Location_Attribute_ID">Urban Café</wd:ID>
+					<wd:ID wd:type="Location_Attribute_Name_ID">Urban Café</wd:ID>
+				</wd:Location_Attribute_Reference>
+				<wd:Inactive>0</wd:Inactive>
+				<wd:Latitude>0</wd:Latitude>
+				<wd:Longitude>0</wd:Longitude>
+				<wd:Altitude>0</wd:Altitude>
+				<wd:Time_Profile_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250129ac19d240e931aa18</wd:ID>
+					<wd:ID wd:type="Time_Profile_ID">Standard_Hours_35</wd:ID>
+				</wd:Time_Profile_Reference>
+				<wd:Locale_Reference>
+					<wd:ID wd:type="WID">d9e43bf2446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="Locale_ID">en_GB</wd:ID>
+				</wd:Locale_Reference>
+				<wd:Display_Language_Reference>
+					<wd:ID wd:type="WID">da594226446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="User_Language_ID">en_US</wd:ID>
+				</wd:Display_Language_Reference>
+				<wd:Time_Zone_Reference>
+					<wd:ID wd:type="WID">dc10f51e446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="Time_Zone_ID">Europe/London</wd:ID>
+				</wd:Time_Zone_Reference>
+				<wd:Default_Currency_Reference>
+					<wd:ID wd:type="WID">84c7000ecd1d4834a9bfa55ab2dad129</wd:ID>
+					<wd:ID wd:type="Currency_ID">GBP</wd:ID>
+					<wd:ID wd:type="Currency_Numeric_Code">826</wd:ID>
+				</wd:Default_Currency_Reference>
+				<wd:Contact_Data>
+					<wd:Address_Data wd:Effective_Date="1980-01-01-08:00"
+						wd:Address_Format_Type="Basic"
+						wd:Formatted_Address="85 Aldgate High Street&amp;#xa;London&amp;#xa;EC3N 1LH&amp;#xa;United Kingdom"
+						wd:Defaulted_Business_Site_Address="0">
+						<wd:Country_Reference>
+							<wd:ID wd:type="WID">29247e57dbaf46fb855b224e03170bc7</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Alpha-2_Code">GB</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Alpha-3_Code">GBR</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Numeric-3_Code">826</wd:ID>
+						</wd:Country_Reference>
+						<wd:Last_Modified>2018-02-22T01:40:36.294-08:00
+						</wd:Last_Modified>
+						<wd:Address_Line_Data wd:Type="ADDRESS_LINE_1"
+							wd:Descriptor="Address Line 1">85 Aldgate High Street</wd:Address_Line_Data>
+						<wd:Municipality>London</wd:Municipality>
+						<wd:Postal_Code>EC3N 1LH</wd:Postal_Code>
+						<wd:Usage_Data wd:Public="1">
+							<wd:Type_Data wd:Primary="1">
+								<wd:Type_Reference>
+									<wd:ID wd:type="WID">4fae289a7fe541b098ca9448e462ff6b</wd:ID>
+									<wd:ID wd:type="Communication_Usage_Type_ID">BUSINESS</wd:ID>
+								</wd:Type_Reference>
+							</wd:Type_Data>
+						</wd:Usage_Data>
+						<wd:Number_of_Days>0</wd:Number_of_Days>
+						<wd:Address_Reference>
+							<wd:ID wd:type="WID">541d79e7cd2501efb55b6a802f32a335</wd:ID>
+							<wd:ID wd:type="Address_ID">ADDRESS_REFERENCE-6-789</wd:ID>
+						</wd:Address_Reference>
+						<wd:Address_ID>ADDRESS_REFERENCE-6-789</wd:Address_ID>
+					</wd:Address_Data>
+					<wd:Phone_Data wd:Formatted_Phone="+44 (0207) 9325273">
+						<wd:Country_ISO_Code>GBR</wd:Country_ISO_Code>
+						<wd:International_Phone_Code>44</wd:International_Phone_Code>
+						<wd:Area_Code>0207</wd:Area_Code>
+						<wd:Phone_Number>9325273</wd:Phone_Number>
+						<wd:Phone_Device_Type_Reference>
+							<wd:ID wd:type="WID">541d79e7cd2501bc78c7c93891313500</wd:ID>
+							<wd:ID wd:type="Phone_Device_Type_ID">WORK</wd:ID>
+						</wd:Phone_Device_Type_Reference>
+						<wd:Usage_Data wd:Public="1">
+							<wd:Type_Data wd:Primary="1">
+								<wd:Type_Reference>
+									<wd:ID wd:type="WID">4fae289a7fe541b098ca9448e462ff6b</wd:ID>
+									<wd:ID wd:type="Communication_Usage_Type_ID">BUSINESS</wd:ID>
+								</wd:Type_Reference>
+							</wd:Type_Data>
+						</wd:Usage_Data>
+						<wd:Phone_Reference>
+							<wd:ID wd:type="WID">541d79e7cd2501ff3f8f6a802f32a635</wd:ID>
+							<wd:ID wd:type="Phone_ID">PHONE_REFERENCE-6-789</wd:ID>
+						</wd:Phone_Reference>
+						<wd:ID>PHONE_REFERENCE-6-789</wd:ID>
+					</wd:Phone_Data>
+				</wd:Contact_Data>
+				<wd:Integration_ID_Data>
+					<wd:ID wd:System_ID="WD-I">216$189</wd:ID>
+					<wd:ID wd:System_ID="WD-WID">541d79e7cd2501ef5a5fb5262f32e525
+					</wd:ID>
+				</wd:Integration_ID_Data>
+				<wd:Location_Hierarchy_Reference>
+					<wd:ID wd:type="WID">541d79e7cd25018e8a878092ee31dd19</wd:ID>
+					<wd:ID wd:type="Organization_Reference_ID">GBR-A30</wd:ID>
+				</wd:Location_Hierarchy_Reference>
+			</wd:Location_Data>
+		</wd:Location>
+		<wd:Location>
+			<wd:Location_Reference>
+				<wd:ID wd:type="WID">541d79e7cd2501611364b1262f32dd25</wd:ID>
+				<wd:ID wd:type="Location_ID">GBR-72</wd:ID>
+			</wd:Location_Reference>
+			<wd:Location_Data>
+				<wd:Location_ID>GBR-72</wd:Location_ID>
+				<wd:Location_Name>Bishopsgate, 192</wd:Location_Name>
+				<wd:Location_Usage_Reference>
+					<wd:ID wd:type="WID">46db411c4a5245fbb39834d8b2cba049</wd:ID>
+					<wd:ID wd:type="Location_Usage_ID">BUSINESS SITE</wd:ID>
+				</wd:Location_Usage_Reference>
+				<wd:Location_Type_Reference>
+					<wd:ID wd:type="WID">541d79e7cd25016f3bffd854e931b518</wd:ID>
+					<wd:ID wd:type="Location_Type_ID">Pay Area 1</wd:ID>
+				</wd:Location_Type_Reference>
+				<wd:Location_Type_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250114f8cbd854e931b018</wd:ID>
+					<wd:ID wd:type="Location_Type_ID">Shop</wd:ID>
+				</wd:Location_Type_Reference>
+				<wd:Location_Attribute_Reference>
+					<wd:ID wd:type="WID">541d79e7cd25018528fa5486e931b918</wd:ID>
+					<wd:ID wd:type="Location_Attribute_ID">Urban Café</wd:ID>
+					<wd:ID wd:type="Location_Attribute_Name_ID">Urban Café</wd:ID>
+				</wd:Location_Attribute_Reference>
+				<wd:Inactive>0</wd:Inactive>
+				<wd:Latitude>0</wd:Latitude>
+				<wd:Longitude>0</wd:Longitude>
+				<wd:Altitude>0</wd:Altitude>
+				<wd:Time_Profile_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250129ac19d240e931aa18</wd:ID>
+					<wd:ID wd:type="Time_Profile_ID">Standard_Hours_35</wd:ID>
+				</wd:Time_Profile_Reference>
+				<wd:Locale_Reference>
+					<wd:ID wd:type="WID">d9e43bf2446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="Locale_ID">en_GB</wd:ID>
+				</wd:Locale_Reference>
+				<wd:Display_Language_Reference>
+					<wd:ID wd:type="WID">da594226446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="User_Language_ID">en_US</wd:ID>
+				</wd:Display_Language_Reference>
+				<wd:Time_Zone_Reference>
+					<wd:ID wd:type="WID">dc10f51e446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="Time_Zone_ID">Europe/London</wd:ID>
+				</wd:Time_Zone_Reference>
+				<wd:Default_Currency_Reference>
+					<wd:ID wd:type="WID">84c7000ecd1d4834a9bfa55ab2dad129</wd:ID>
+					<wd:ID wd:type="Currency_ID">GBP</wd:ID>
+					<wd:ID wd:type="Currency_Numeric_Code">826</wd:ID>
+				</wd:Default_Currency_Reference>
+				<wd:Contact_Data>
+					<wd:Address_Data wd:Effective_Date="1980-01-01-08:00"
+						wd:Address_Format_Type="Basic"
+						wd:Formatted_Address="192 Bishopsgate&amp;#xa;London&amp;#xa;EC2M 4NR&amp;#xa;United Kingdom"
+						wd:Defaulted_Business_Site_Address="0">
+						<wd:Country_Reference>
+							<wd:ID wd:type="WID">29247e57dbaf46fb855b224e03170bc7</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Alpha-2_Code">GB</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Alpha-3_Code">GBR</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Numeric-3_Code">826</wd:ID>
+						</wd:Country_Reference>
+						<wd:Last_Modified>2018-02-22T01:40:36.215-08:00
+						</wd:Last_Modified>
+						<wd:Address_Line_Data wd:Type="ADDRESS_LINE_1"
+							wd:Descriptor="Address Line 1">192 Bishopsgate</wd:Address_Line_Data>
+						<wd:Municipality>London</wd:Municipality>
+						<wd:Postal_Code>EC2M 4NR</wd:Postal_Code>
+						<wd:Usage_Data wd:Public="1">
+							<wd:Type_Data wd:Primary="1">
+								<wd:Type_Reference>
+									<wd:ID wd:type="WID">4fae289a7fe541b098ca9448e462ff6b</wd:ID>
+									<wd:ID wd:type="Communication_Usage_Type_ID">BUSINESS</wd:ID>
+								</wd:Type_Reference>
+							</wd:Type_Data>
+						</wd:Usage_Data>
+						<wd:Number_of_Days>0</wd:Number_of_Days>
+						<wd:Address_Reference>
+							<wd:ID wd:type="WID">541d79e7cd250126a18665802f329d35</wd:ID>
+							<wd:ID wd:type="Address_ID">ADDRESS_REFERENCE-6-788</wd:ID>
+						</wd:Address_Reference>
+						<wd:Address_ID>ADDRESS_REFERENCE-6-788</wd:Address_ID>
+					</wd:Address_Data>
+					<wd:Phone_Data wd:Formatted_Phone="+44 (0207) 9325272">
+						<wd:Country_ISO_Code>GBR</wd:Country_ISO_Code>
+						<wd:International_Phone_Code>44</wd:International_Phone_Code>
+						<wd:Area_Code>0207</wd:Area_Code>
+						<wd:Phone_Number>9325272</wd:Phone_Number>
+						<wd:Phone_Device_Type_Reference>
+							<wd:ID wd:type="WID">541d79e7cd2501bc78c7c93891313500</wd:ID>
+							<wd:ID wd:type="Phone_Device_Type_ID">WORK</wd:ID>
+						</wd:Phone_Device_Type_Reference>
+						<wd:Usage_Data wd:Public="1">
+							<wd:Type_Data wd:Primary="1">
+								<wd:Type_Reference>
+									<wd:ID wd:type="WID">4fae289a7fe541b098ca9448e462ff6b</wd:ID>
+									<wd:ID wd:type="Communication_Usage_Type_ID">BUSINESS</wd:ID>
+								</wd:Type_Reference>
+							</wd:Type_Data>
+						</wd:Usage_Data>
+						<wd:Phone_Reference>
+							<wd:ID wd:type="WID">541d79e7cd25016671c365802f32a035</wd:ID>
+							<wd:ID wd:type="Phone_ID">PHONE_REFERENCE-6-788</wd:ID>
+						</wd:Phone_Reference>
+						<wd:ID>PHONE_REFERENCE-6-788</wd:ID>
+					</wd:Phone_Data>
+				</wd:Contact_Data>
+				<wd:Integration_ID_Data>
+					<wd:ID wd:System_ID="WD-I">216$188</wd:ID>
+					<wd:ID wd:System_ID="WD-WID">541d79e7cd2501611364b1262f32dd25
+					</wd:ID>
+				</wd:Integration_ID_Data>
+				<wd:Location_Hierarchy_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250172424d9e92ee31051a</wd:ID>
+					<wd:ID wd:type="Organization_Reference_ID">GBR-A045</wd:ID>
+				</wd:Location_Hierarchy_Reference>
+			</wd:Location_Data>
+		</wd:Location>
+		<wd:Location>
+			<wd:Location_Reference>
+				<wd:ID wd:type="WID">541d79e7cd2501af8433ad262f32d525</wd:ID>
+				<wd:ID wd:type="Location_ID">GBR-71</wd:ID>
+			</wd:Location_Reference>
+			<wd:Location_Data>
+				<wd:Location_ID>GBR-71</wd:Location_ID>
+				<wd:Location_Name>Strand, 135</wd:Location_Name>
+				<wd:Location_Usage_Reference>
+					<wd:ID wd:type="WID">46db411c4a5245fbb39834d8b2cba049</wd:ID>
+					<wd:ID wd:type="Location_Usage_ID">BUSINESS SITE</wd:ID>
+				</wd:Location_Usage_Reference>
+				<wd:Location_Type_Reference>
+					<wd:ID wd:type="WID">541d79e7cd25016f3bffd854e931b518</wd:ID>
+					<wd:ID wd:type="Location_Type_ID">Pay Area 1</wd:ID>
+				</wd:Location_Type_Reference>
+				<wd:Location_Type_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250114f8cbd854e931b018</wd:ID>
+					<wd:ID wd:type="Location_Type_ID">Shop</wd:ID>
+				</wd:Location_Type_Reference>
+				<wd:Location_Attribute_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250198e7ec5486e931b818</wd:ID>
+					<wd:ID wd:type="Location_Attribute_ID">Worker</wd:ID>
+					<wd:ID wd:type="Location_Attribute_Name_ID">Worker</wd:ID>
+				</wd:Location_Attribute_Reference>
+				<wd:Inactive>0</wd:Inactive>
+				<wd:Latitude>0</wd:Latitude>
+				<wd:Longitude>0</wd:Longitude>
+				<wd:Altitude>0</wd:Altitude>
+				<wd:Time_Profile_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250129ac19d240e931aa18</wd:ID>
+					<wd:ID wd:type="Time_Profile_ID">Standard_Hours_35</wd:ID>
+				</wd:Time_Profile_Reference>
+				<wd:Locale_Reference>
+					<wd:ID wd:type="WID">d9e43bf2446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="Locale_ID">en_GB</wd:ID>
+				</wd:Locale_Reference>
+				<wd:Display_Language_Reference>
+					<wd:ID wd:type="WID">da594226446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="User_Language_ID">en_US</wd:ID>
+				</wd:Display_Language_Reference>
+				<wd:Time_Zone_Reference>
+					<wd:ID wd:type="WID">dc10f51e446c11de98360015c5e6daf6</wd:ID>
+					<wd:ID wd:type="Time_Zone_ID">Europe/London</wd:ID>
+				</wd:Time_Zone_Reference>
+				<wd:Default_Currency_Reference>
+					<wd:ID wd:type="WID">84c7000ecd1d4834a9bfa55ab2dad129</wd:ID>
+					<wd:ID wd:type="Currency_ID">GBP</wd:ID>
+					<wd:ID wd:type="Currency_Numeric_Code">826</wd:ID>
+				</wd:Default_Currency_Reference>
+				<wd:Contact_Data>
+					<wd:Address_Data wd:Effective_Date="1980-01-01-08:00"
+						wd:Address_Format_Type="Basic"
+						wd:Formatted_Address="135 Strand&amp;#xa;London&amp;#xa;WC2R 1HH&amp;#xa;United Kingdom"
+						wd:Defaulted_Business_Site_Address="0">
+						<wd:Country_Reference>
+							<wd:ID wd:type="WID">29247e57dbaf46fb855b224e03170bc7</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Alpha-2_Code">GB</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Alpha-3_Code">GBR</wd:ID>
+							<wd:ID wd:type="ISO_3166-1_Numeric-3_Code">826</wd:ID>
+						</wd:Country_Reference>
+						<wd:Last_Modified>2018-02-22T01:40:36.119-08:00
+						</wd:Last_Modified>
+						<wd:Address_Line_Data wd:Type="ADDRESS_LINE_1"
+							wd:Descriptor="Address Line 1">135 Strand</wd:Address_Line_Data>
+						<wd:Municipality>London</wd:Municipality>
+						<wd:Postal_Code>WC2R 1HH</wd:Postal_Code>
+						<wd:Usage_Data wd:Public="1">
+							<wd:Type_Data wd:Primary="1">
+								<wd:Type_Reference>
+									<wd:ID wd:type="WID">4fae289a7fe541b098ca9448e462ff6b</wd:ID>
+									<wd:ID wd:type="Communication_Usage_Type_ID">BUSINESS</wd:ID>
+								</wd:Type_Reference>
+							</wd:Type_Data>
+						</wd:Usage_Data>
+						<wd:Number_of_Days>0</wd:Number_of_Days>
+						<wd:Address_Reference>
+							<wd:ID wd:type="WID">541d79e7cd250164a80860802f329735</wd:ID>
+							<wd:ID wd:type="Address_ID">ADDRESS_REFERENCE-6-787</wd:ID>
+						</wd:Address_Reference>
+						<wd:Address_ID>ADDRESS_REFERENCE-6-787</wd:Address_ID>
+					</wd:Address_Data>
+					<wd:Phone_Data wd:Formatted_Phone="+44 (0207) 9325271">
+						<wd:Country_ISO_Code>GBR</wd:Country_ISO_Code>
+						<wd:International_Phone_Code>44</wd:International_Phone_Code>
+						<wd:Area_Code>0207</wd:Area_Code>
+						<wd:Phone_Number>9325271</wd:Phone_Number>
+						<wd:Phone_Device_Type_Reference>
+							<wd:ID wd:type="WID">541d79e7cd2501bc78c7c93891313500</wd:ID>
+							<wd:ID wd:type="Phone_Device_Type_ID">WORK</wd:ID>
+						</wd:Phone_Device_Type_Reference>
+						<wd:Usage_Data wd:Public="1">
+							<wd:Type_Data wd:Primary="1">
+								<wd:Type_Reference>
+									<wd:ID wd:type="WID">4fae289a7fe541b098ca9448e462ff6b</wd:ID>
+									<wd:ID wd:type="Communication_Usage_Type_ID">BUSINESS</wd:ID>
+								</wd:Type_Reference>
+							</wd:Type_Data>
+						</wd:Usage_Data>
+						<wd:Phone_Reference>
+							<wd:ID wd:type="WID">541d79e7cd25012e823e60802f329a35</wd:ID>
+							<wd:ID wd:type="Phone_ID">PHONE_REFERENCE-6-787</wd:ID>
+						</wd:Phone_Reference>
+						<wd:ID>PHONE_REFERENCE-6-787</wd:ID>
+					</wd:Phone_Data>
+				</wd:Contact_Data>
+				<wd:Integration_ID_Data>
+					<wd:ID wd:System_ID="WD-I">216$187</wd:ID>
+					<wd:ID wd:System_ID="WD-WID">541d79e7cd2501af8433ad262f32d525
+					</wd:ID>
+				</wd:Integration_ID_Data>
+				<wd:Location_Hierarchy_Reference>
+					<wd:ID wd:type="WID">541d79e7cd250168d89f6e92ee31c419</wd:ID>
+					<wd:ID wd:type="Organization_Reference_ID">GBR-A101189</wd:ID>
+				</wd:Location_Hierarchy_Reference>
+			</wd:Location_Data>
+		</wd:Location>
+	</wd:Response_Data>
+</wd:Get_Locations_Response>

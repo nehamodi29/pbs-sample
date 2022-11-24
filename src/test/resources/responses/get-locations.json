@@ -1,0 +1,101 @@
+{
+  "Get_Locations_Response": {
+    "Response_Filter": {
+      "Page": "1"
+    },
+    "Response_Results": {
+      "Total_Results": "18",
+      "Total_Pages": "6",
+      "Page_Results": "3",
+      "Page": "1"
+    },
+    "Response_Data": {
+      "Location": {
+        "Location_Reference": {
+          "ID": "GBR-71"
+        },
+        "Location_Data": {
+          "Location_ID": "GBR-71",
+          "Location_Name": "Strand, 135",
+          "Location_Usage_Reference": {
+            "ID": "BUSINESS SITE"
+          },
+          "Location_Type_Reference": {
+            "ID": "Shop"
+          },
+          "Location_Attribute_Reference": {
+            "ID": "Worker"
+          },
+          "Inactive": "0",
+          "Latitude": "0",
+          "Longitude": "0",
+          "Altitude": "0",
+          "Time_Profile_Reference": {
+            "ID": "Standard_Hours_35"
+          },
+          "Locale_Reference": {
+            "ID": "en_GB"
+          },
+          "Display_Language_Reference": {
+            "ID": "en_US"
+          },
+          "Time_Zone_Reference": {
+            "ID": "Europe/London"
+          },
+          "Default_Currency_Reference": {
+            "ID": "826"
+          },
+          "Contact_Data": {
+            "Address_Data": {
+              "Country_Reference": {
+                "ID": "826"
+              },
+              "Last_Modified": "2018-02-22T01:40:36.119-08:00\n\t\t\t\t\t\t",
+              "Address_Line_Data": "135 Strand",
+              "Municipality": "London",
+              "Postal_Code": "WC2R 1HH",
+              "Usage_Data": {
+                "Type_Data": {
+                  "Type_Reference": {
+                    "ID": "BUSINESS"
+                  }
+                }
+              },
+              "Number_of_Days": "0",
+              "Address_Reference": {
+                "ID": "ADDRESS_REFERENCE-6-787"
+              },
+              "Address_ID": "ADDRESS_REFERENCE-6-787"
+            },
+            "Phone_Data": {
+              "Country_ISO_Code": "GBR",
+              "International_Phone_Code": "44",
+              "Area_Code": "0207",
+              "Phone_Number": "9325271",
+              "Phone_Device_Type_Reference": {
+                "ID": "WORK"
+              },
+              "Usage_Data": {
+                "Type_Data": {
+                  "Type_Reference": {
+                    "ID": "BUSINESS"
+                  }
+                }
+              },
+              "Phone_Reference": {
+                "ID": "PHONE_REFERENCE-6-787"
+              },
+              "ID": "PHONE_REFERENCE-6-787"
+            }
+          },
+          "Integration_ID_Data": {
+            "ID": "541d79e7cd2501af8433ad262f32d525\n\t\t\t\t\t"
+          },
+          "Location_Hierarchy_Reference": {
+            "ID": "GBR-A101189"
+          }
+        }
+      }
+    }
+  }
+}

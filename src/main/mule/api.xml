@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd  http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+    <flow name="apix-workday-sapi-main">
+        <http:listener config-ref="apiHttpListenerConfig" path="/api/${api.majorVersion}/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:router config-ref="apixWorkdaySapiConfig" />
+    </flow>
+    <flow name="get:\absenceManagement:apixWorkdaySapiConfig" doc:id="0c5d0833-6fe4-459d-b5d6-bbf2d06b41a0">
+        <flow-ref doc:name="get-absence-management" doc:id="27179d77-0f2b-44ec-be60-d7fe4690fc94" name="get-absence-management" />
+    </flow>
+    <flow name="get:\payroll\advancedLookupTables:apixWorkdaySapiConfig" doc:id="2cefe3a5-09fe-4298-b82e-f73780156d14">
+        <flow-ref doc:name="payroll-get-advanced-lookup-tables-flow" doc:id="07fef659-b5ca-4ddb-a48a-af25dd2e03cc" name="payroll-get-advanced-lookup-tables-flow" />
+    </flow>
+    <flow name="get:\payroll\companyPaymentDates:apixWorkdaySapiConfig" doc:id="67b4d6c0-18a7-455d-8946-03f4477b97ac">
+        <flow-ref doc:name="payroll-get-company-payment-dates-flow" doc:id="8c6e1192-6bb7-4c9c-8662-b87b51b0c071" name="payroll-get-company-payment-dates-flow" />
+    </flow>
+    <flow name="get:\compensation\compensationGradeById:apixWorkdaySapiConfig" doc:id="7f9b79ca-c1c3-4ce6-b30f-f0166f5f0629">
+        <flow-ref doc:name="get-compensation-grade-by-id" doc:id="52df2375-f2ce-4295-8dbe-2317e0598e78" name="get-compensation-grade-by-id" />
+    </flow>
+    <flow name="get:\humanResources\jobProfile:apixWorkdaySapiConfig" doc:id="b630a0c4-67d9-42b3-95db-7229c1145d47">
+        <flow-ref doc:name="get-job-profiles" doc:id="8bb5d8e5-2986-4e49-9c36-18be45f69678" name="get-job-profiles" />
+    </flow>
+    <flow name="get:\humanResources\locations:apixWorkdaySapiConfig" doc:id="2ef2031b-11af-4e7d-903b-5335889d7886">
+        <flow-ref doc:name="get-locations" doc:id="ea0fd096-4e8f-4591-ba1f-94bd2984be08" name="get-locations" />
+    </flow>
+    <flow name="get:\humanResources\workers:apixWorkdaySapiConfig" doc:id="7d2883cc-28ba-40ff-b4ed-4facc202f7b0">
+        <flow-ref doc:name="get-workers" doc:id="081daf4d-7e58-4c01-b0f7-e0a50e535934" name="get-workers" />
+    </flow>
+</mule>

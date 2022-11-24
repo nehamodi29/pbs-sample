@@ -1,0 +1,24 @@
+############### TLS CONTEXT #################
+tls.keystore: 
+  type: "pkcs12"
+  path: "certs/apix-workday-sapi-prod.p12"
+  alias: "server"
+  password: "![TjrgNiKb/sw=]"
+  keyPassword: "![TjrgNiKb/sw=]"
+  
+############### WORKDAY #################
+workdayMockRequest:
+  host:  "apiops-workday-mock-sapi.us-e2.cloudhub.io"
+  port: "80"
+  absenceManagementPath: "/api/absenceManagement"
+  WorkersPath: "/api/humanResources/getWorkers"
+  CompenstionGradePath: "/api/compensation/getCompensationGradeById"
+  JobProfiles: "/api/humanResources/getJobProfile"
+  Locations: "/api/humanResources/getLocations"
+  CompanyPaymentDates: "/api/payroll/getCompanyPaymentDates"
+  AdvancedLookupTables: "/api/payroll/getAdvancedLookupTables"
+  
+############### API AUTODISCOVERY  #################
+api:
+  id: "12345"
+ 

@@ -1,0 +1,10 @@
+############### API DETAILS  #################
+api: 
+  #groupId: "b0beec90-c6cc-4c36-8f7c-ef1f8f91253b"
+  artifactId: "${project.artifactId}"
+  version: "${project.version}"
+  #spec: "resource::${project.groupId}:${project.artifactId}:${project.version}:raml:zip:apix-workday-sapi.raml" 
+  majorVersion: "v1"
+  port: "8082"
+  listenerConfig: "apiHttpListenerConfig"  
+
