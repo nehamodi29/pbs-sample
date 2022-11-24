@@ -40,22 +40,22 @@ stage('SonarQube'){
                 }
             }
         }
-        stage('Quality Gate'){
-            steps {
-                script {
-                    timeout(time: 1, unit: 'HOURS') { 
-                        sh "curl -u admin:sonarqubenjclabs123 -X GET -H 'Accept: application/json' http://142.93.218.194:9000/api/qualitygates/project_status?projectKey=com.mycompany:pbs-sample > status.json"
-                        def json = readJSON file:'status.json'
-                        echo "${json.projectStatus}"
-                        if ("${json.projectStatus.status}" != "OK") {
-                            currentBuild.result = 'FAILURE'
-                            error('Pipeline aborted due to quality gate failure.')
-                        }
-                    }
-                }
-            }
+//         stage('Quality Gate'){
+//             steps {
+//                 script {
+//                     timeout(time: 1, unit: 'HOURS') { 
+//                         sh "curl -u admin:sonarqubenjclabs123 -X GET -H 'Accept: application/json' http://142.93.218.194:9000/api/qualitygates/project_status?projectKey=com.mycompany:pbs-sample > status.json"
+//                         def json = readJSON file:'status.json'
+//                         echo "${json.projectStatus}"
+//                         if ("${json.projectStatus.status}" != "OK") {
+//                             currentBuild.result = 'FAILURE'
+//                             error('Pipeline aborted due to quality gate failure.')
+//                         }
+//                     }
+//                 }
+//             }
             
-        }
+//         }
  
 //    stage('Build image') {
 //       steps {
