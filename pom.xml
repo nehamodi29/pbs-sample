@@ -20,6 +20,8 @@
 		<deployment.suffix>-${deployment.env}</deployment.suffix>
 		<deployment.name>${project.artifactId}${deployment.suffix}</deployment.name>
 		<ap.environment>${deployment.env}</ap.environment>
+		<sonar.sources>src/main</sonar.sources>
+		<sonar.tests>src/test</sonar.tests>
 	</properties>
 
 	<build>
@@ -328,7 +330,7 @@
 		<dependency>
 			<groupId>b0beec90-c6cc-4c36-8f7c-ef1f8f91253b</groupId>
 			<artifactId>pbs-sample</artifactId>
-			<version>2.0.4</version>
+			<version>2.0.5</version>
 			<classifier>raml</classifier>
 			<type>zip</type>
 		</dependency>
